@@ -6,11 +6,13 @@
   "scripts": {
     "mock": "json-server --watch mock/mock-db.json --port 3000 &",
     "start": "vite",
+    "restart": "kill -9 $(lsof -t -i:3000) && yarn mock && vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "json-server": "^1.0.0-beta.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
