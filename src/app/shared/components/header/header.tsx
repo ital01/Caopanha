@@ -1,5 +1,3 @@
-import '../../../../index.css'
-
 const Header = () => {
   return (
     <header className='flex-row'>
