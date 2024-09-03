@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "mock": "json-server --watch mock/mock-db.json --port 3000 &",
-    "start": "node set-env.js && vite",
-    "restart": "kill -9 $(lsof -t -i:3000) && yarn mock && yarn start",
-    "build": "node set-env.js && tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+"scripts": {
+  "mock": "json-server --watch mock/mock-db.json --port 3000 &",
+  "start": "node set-env.js && vite",
+  "stop-mock": "lsof -t -i:3000 | xargs kill -9 || echo 'No mock server running on port 3000'",
+  "restart": "yarn stop-mock && yarn mock && yarn start",
+  "build": "node set-env.js && tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
