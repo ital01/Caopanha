@@ -18,7 +18,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Paths */
+    "paths": {
+      "@api/*": ["./src/app/shared/api/*"],
+      "@components/*": ["./src/app/shared/components/*"],
+      "@controllers/*": ["./src/app/shared/controllers/*"],
+      "@data/*": ["./src/app/shared/data/*"],
+      "@environment/*": ["./src/app/shared/environment/*"],
+      "@errors/*": ["./src/app/shared/errors/*"],
+      "@services/*": ["./src/app/shared/services/*"],
+      "@utils/*": ["./src/app/shared/utils/*"]
+    }
   },
   "include": ["src"]
 }

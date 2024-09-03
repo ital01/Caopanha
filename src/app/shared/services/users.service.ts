@@ -1,19 +1,11 @@
-import { getApiUrl } from "../api/api";
-import { UserVo } from "../data/vo/users.vo";
-import { UserDto } from "../data/dto/users.dto";
+import { getApiUrl } from "@api/api";
+import { UserVo } from "@data/vo/users.vo";
+import { usersMapper } from "@data/mapper/users.mapper";
 
-function mapUsers(users: UserDto[]): UserVo[] {
-  return users.map(user => ({
-    id: user.id,
-    name: user.name,
-    email: user.email
-  }));
-}
-
-function getUsers(): Promise<UserVo[]> {
+function usersService(): Promise<UserVo[]> {
   return fetch(getApiUrl("users"))
     .then(response => response.json())
-    .then(mapUsers);
+    .then(usersMapper);
 }
 
-export { getUsers };
+export { usersService as getUsers };

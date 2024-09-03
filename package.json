@@ -11,6 +11,11 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -23,11 +28,6 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
-  },
-  "lint-staged": {
-    "src/**/*.{js,ts}": [
-      "eslint --fix"
-    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -47,7 +47,8 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "~5.4.2",
     "typescript-eslint": "8.0.0-alpha.38",
-    "vite": "^5.4.1"
+    "vite": "^5.4.3",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "main": "index.js",
   "license": "MIT"
