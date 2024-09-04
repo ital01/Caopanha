@@ -6,7 +6,7 @@ import Header from '@components/header/header';
 
 export default function AppRoutes() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== '/login';
+  const showHeaderFooter = location.pathname !== '/Caopanha/login';
 
   return (
     <>
