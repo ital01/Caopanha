@@ -1,5 +1,6 @@
 import { UserVo } from "@data/vo/users.vo";
 import { getUsers } from "@services/users.service";
+import { useEffect, useState } from "react";
 
 async function usersController():Promise<UserVo[]> {
   return await getUsers().then(users => {
@@ -7,6 +8,16 @@ async function usersController():Promise<UserVo[]> {
   });
 }
 
-const Users = await usersController();
+export default function Users():UserVo[] {
+  const [users, setUsers] = useState<UserVo[]>([]);
 
-export { Users };
+  useEffect(() => {
+    usersController().then((fetchedUsers: UserVo[]) => {
+      setUsers(fetchedUsers);
+    });
+  }, []);
+
+  return users;
+}
+
+
