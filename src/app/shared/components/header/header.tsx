@@ -1,20 +1,12 @@
-import { useLocation } from "react-router-dom";
-import Navigate from "@utils/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
 import ScrollToElement from "@utils/scroll-to-element";
 
 export default function Header() {
-
+  const navigate = useNavigate();
   const location = useLocation();
 
   const isHome = location.pathname === '/Caopanha/home';
   const isLogged = false;
-
-  function handleScrollAndNavigate(target: string) {
-    return () => {
-      Navigate('/Caopanha/home');
-      ScrollToElement(target);
-    };
-  }
 
   return (
     <header
@@ -41,7 +33,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('top') : handleScrollAndNavigate('top')}
+          onClick={isHome ? ScrollToElement('top') : ()=>navigate('/Caopanha/home')}
           style={{
             backgroundImage: 'url("svg/brasao-americana.svg")',
             backgroundSize: 'contain',
@@ -68,7 +60,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('top') : handleScrollAndNavigate('top')}
+          onClick={isHome ? ScrollToElement('mid') : ()=>navigate('/Caopanha/home')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -76,7 +68,7 @@ export default function Header() {
           Como Funciona ?
         </button>
         <button 
-          onClick={isHome ? ScrollToElement('top') : handleScrollAndNavigate('top')}
+          onClick={isHome ? ScrollToElement('bot') : ()=>navigate('/Caopanha/home')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -87,7 +79,7 @@ export default function Header() {
           isLogged ? (
             <>
               <button
-                onClick={Navigate('/Caopanha/agendamentos')} 
+                onClick={()=>navigate('/Caopanha/agendamentos')}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -95,7 +87,7 @@ export default function Header() {
                 Agendamentos
               </button>
               <button
-                onClick={Navigate('/Caopanha/pets')} 
+                onClick={()=>navigate('/Caopanha/pets')} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -103,7 +95,7 @@ export default function Header() {
                 Meus Pets
               </button>
               <button
-                onClick={Navigate('/Caopanha/dashboard')} 
+                onClick={()=>navigate('/Caopanha/dashboard')} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -113,7 +105,7 @@ export default function Header() {
             </>
           ) : (
             <button 
-              onClick={Navigate('/Caopanha/login')}
+              onClick={()=>navigate('/Caopanha/login')}
               style={{ transition: 'color 0.2s ease-in-out' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
