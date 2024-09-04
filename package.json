@@ -1,16 +1,18 @@
 {
+  "homepage": "https://ital01.github.io/Caopanha",
   "name": "caopanha",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "mock": "json-server --watch mock/mock-db.json --port 3000 &",
-  "start": "node set-env.js && vite",
-  "stop-mock": "lsof -t -i:3000 | xargs kill -9 || echo 'No mock server running on port 3000'",
-  "restart": "yarn stop-mock && yarn mock && yarn start",
-  "build": "node set-env.js && tsc -b && vite build",
-  "lint": "eslint .",
-  "preview": "vite preview"
+  "scripts": {
+    "mock": "json-server --watch mock/mock-db.json --port 3000 &",
+    "start": "node set-env.js && vite",
+    "stop-mock": "lsof -t -i:3000 | xargs kill -9 || echo 'No mock server running on port 3000'",
+    "restart": "yarn stop-mock && yarn mock && yarn start",
+    "build": "node set-env.js && tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
@@ -24,6 +26,7 @@
     "@popperjs/core": "^2.11.8",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
+    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
