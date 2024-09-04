@@ -7,15 +7,17 @@ import Header from '@components/header/header';
 export default function AppRoutes() {
   const location = useLocation();
   const hideHeaderFooter = location.pathname === '/login';
-  
+
   return (
     <>
       {!hideHeaderFooter && <Header />}
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div style={{ marginTop: hideHeaderFooter ? '0' : '10vh' }}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
       {/* {!hideHeaderFooter && <Footer />} */}
     </>
   );

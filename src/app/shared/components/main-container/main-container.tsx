@@ -6,7 +6,7 @@ export default function MainContainer(
   return (
     <main
       style={{
-        height: '85vh',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

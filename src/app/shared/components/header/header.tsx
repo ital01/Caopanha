@@ -6,6 +6,9 @@ export default function Header() {
   return (
     <header
       style={{
+        width: '100%',
+        position: 'fixed',
+        zIndex: '2',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
