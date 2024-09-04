@@ -1,4 +1,4 @@
-import { JSXElementConstructor, ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 
 export default function WaveLetter({
   letter,
@@ -6,7 +6,7 @@ export default function WaveLetter({
   delay,
   animateWave
 }: {
-  letter: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined,
+  letter: ReactNode,
   color: string, 
   delay: number,
   animateWave: boolean

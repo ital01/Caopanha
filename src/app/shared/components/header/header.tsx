@@ -48,7 +48,8 @@ export default function Header() {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'end',
+          justifyContent: 'center',
+          alignItems: 'center',
           gap: '3vw'
         }}
       >
@@ -56,7 +57,7 @@ export default function Header() {
           href="/" 
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Como Funciona ?
         </a>
@@ -64,7 +65,7 @@ export default function Header() {
           href="/" 
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Campanhas Ativas
         </a>
@@ -75,7 +76,7 @@ export default function Header() {
                 href="/" 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
               >
                 Agendamentos
               </a>
@@ -83,7 +84,7 @@ export default function Header() {
                 href="/" 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
               >
                 Meus Pets
               </a>
@@ -91,7 +92,7 @@ export default function Header() {
                 href="/" 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
               >
                 Minha Conta
               </a>
@@ -101,7 +102,7 @@ export default function Header() {
               href="/login"
               style={{ transition: 'color 0.2s ease-in-out' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
             >
               Fazer Login
             </a>
