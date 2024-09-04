@@ -12,9 +12,9 @@ export default function AppRoutes() {
     <>
       {showHeaderFooter && <Header />}
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/Caopanha" element={<Navigate to="/Caopanha/home" />} />
+        <Route path="/Caopanha/home" element={<Home />} />
+        <Route path="/Caopanha/login" element={<Login />} />
       </Routes>
       {/* {!hideHeaderFooter && <Footer />} */}
     </>
