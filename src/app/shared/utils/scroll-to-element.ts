@@ -1,5 +1,11 @@
 export default function ScrollToElement(id: string) {
-  const element = document.getElementById(id);
-  if (!element) return () => null;
-  return () => element.scrollIntoView({ behavior: 'smooth' });
+  return () => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
 }

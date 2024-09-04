@@ -3,9 +3,9 @@ import MainContainer from "@components/main-container/main-container";
 import SlideDownText from "@components/slide-down-text/slide-down-text";
 import SlideUpImage from "@components/slide-up-image/slide-up-image";
 import WaveLetter from "@components/wave-letter/wave-letter";
+
 export default function Home() {
   const [animateWave, setAnimateWave] = useState(false);
-
   useEffect(() => setAnimateWave(true), []);
 
   return (
