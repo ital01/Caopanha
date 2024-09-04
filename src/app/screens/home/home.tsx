@@ -28,7 +28,7 @@ export default function Home() {
           overflow: 'hidden',
         }}
       >
-        <h1 style={{ fontSize: '3vw', animation: 'slideDown 2s ease-out' }}>
+        <h1 style={{ fontSize: '3vw', animation: 'slideDown 1s ease-out' }}>
           <span>Agora ficou fácil cuidar do seu </span>
           <WaveLetter letter='a' color="#01BBB2" delay={0.1} animateWave={animateWave} />
           <WaveLetter letter='m' color="#FE684D" delay={0.3} animateWave={animateWave} />
@@ -36,7 +36,7 @@ export default function Home() {
           <WaveLetter letter='g' color="#FE684D" delay={0.7} animateWave={animateWave} />
           <WaveLetter letter='o' color="#01BBB2" delay={0.9} animateWave={animateWave} />
         </h1>
-        <h2 style={{ fontSize: '2vw', animation: 'slideDown 2s ease-out' }}>
+        <h2 style={{ fontSize: '2vw', animation: 'slideDown 1s ease-out' }}>
           Agende por aqui a vacinação do seu pet
         </h2>
       </div>
@@ -46,7 +46,7 @@ export default function Home() {
         alt='Imagem de Animais'
         style={{
           width: '55vw',
-          animation: 'slideUp 1.5s ease-out',
+          animation: 'slideUp 1s ease-out',
           overflow: 'hidden',
         }}
       />
