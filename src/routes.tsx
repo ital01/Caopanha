@@ -6,12 +6,12 @@ import Header from '@components/header/header';
 
 export default function AppRoutes() {
   const location = useLocation();
-  const hideHeaderFooter = location.pathname === '/login';
+  const showHeaderFooter = location.pathname !== '/login';
 
   return (
     <>
-      {!hideHeaderFooter && <Header />}
-      <div style={{ marginTop: hideHeaderFooter ? '0' : '10vh' }}>
+      {showHeaderFooter && <Header />}
+      <div style={{ marginTop: showHeaderFooter ? '10vh' : '0' }}>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
