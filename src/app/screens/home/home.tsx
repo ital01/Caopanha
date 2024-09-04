@@ -22,7 +22,7 @@ export default function Home() {
         <SlideDownText fontSize="3rem">
           Agende por aqui a vacinação do seu pet
         </SlideDownText>
-        <SlideUpImage src="images/pets.png" alt="Imagem de Animais" />
+        <SlideUpImage src="images/pets.webp" alt="Imagem de Animais" />
       </section>
 
       <section id="mid" className="section">
