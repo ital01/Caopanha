@@ -1,6 +1,8 @@
-const isLogged = true;
+import Navigate from "@utils/navigation";
 
-const Header = () => {
+const isLogged = false;
+
+export default function Header() {
   return (
     <header 
       style={{
@@ -21,11 +23,20 @@ const Header = () => {
           gap: '1.6rem'
         }}
       >
-        <img 
-          src="svg/brasao-americana.svg" 
-          height={'60px'}
-          width={'auto'}
-          alt="Brasão de Americana" 
+        <button
+          onClick={Navigate('/home')}
+          style={{
+            backgroundColor: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            backgroundImage: 'url("svg/brasao-americana.svg")',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            height: '60px',
+            width: '60px',
+          }}
+          aria-label="Brasão de Americana"
         />
         <p>Prefeitura de Americana</p>
       </div>
@@ -48,12 +59,10 @@ const Header = () => {
               <a href="/">Minha Conta</a>
             </>
           ) : (
-            <a href="/">Fazer Login</a>
+            <a href="/login">Fazer Login</a>
           )
         }
       </nav>
     </header>
   );
 };
-
-export default Header;
