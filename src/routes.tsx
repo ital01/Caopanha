@@ -2,7 +2,7 @@ import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Home from './app/screens/home/home';
 import Login from './app/screens/login/login';
 import Header from '@components/header/header';
-import Footer from '@components/footer/footer';
+// import Footer from '@components/footer/footer';
 
 export default function AppRoutes() {
   const location = useLocation();
@@ -16,7 +16,7 @@ export default function AppRoutes() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      {!hideHeaderFooter && <Footer />}
+      {/* {!hideHeaderFooter && <Footer />} */}
     </>
   );
 }

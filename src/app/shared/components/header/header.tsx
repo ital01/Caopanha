@@ -1,16 +1,16 @@
 import Navigate from "@utils/navigation";
 
-const isLogged = false;
+const isLogged = true;
 
 export default function Header() {
   return (
-    <header 
+    <header
       style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#79B8AA',
-        padding: '1.5rem 3rem',
+        padding: '1rem 2rem',
         fontWeight: 'bold',
         fontSize: '1.8rem'
       }}
@@ -20,7 +20,7 @@ export default function Header() {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          gap: '1.6rem'
+          gap: '1rem',
         }}
       >
         <button
@@ -33,12 +33,15 @@ export default function Header() {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            height: '60px',
-            width: '60px',
+            height: '7vh',
+            width: '7vh',
+            transition: 'transform 0.2s ease-in-out',
           }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           aria-label="Brasão de Americana"
         />
-        <p>Prefeitura de Americana</p>
+        <p style={{ fontSize: '1.8rem' }}>Prefeitura de Americana</p>
       </div>
 
       <nav
@@ -46,23 +49,65 @@ export default function Header() {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'end',
-          gap: '4rem'
+          gap: '3vw'
         }}
       >
-        <a href="/">Como Funciona ?</a>
-        <a href="/">Campanhas Ativas</a>
+        <a 
+          href="/" 
+          style={{ transition: 'color 0.2s ease-in-out' }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+        >
+          Como Funciona ?
+        </a>
+        <a 
+          href="/" 
+          style={{ transition: 'color 0.2s ease-in-out' }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+        >
+          Campanhas Ativas
+        </a>
         {
           isLogged ? (
             <>
-              <a href="/">Agendamentos</a>
-              <a href="/">Meus Pets</a>
-              <a href="/">Minha Conta</a>
+              <a 
+                href="/" 
+                style={{ transition: 'color 0.2s ease-in-out' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+              >
+                Agendamentos
+              </a>
+              <a 
+                href="/" 
+                style={{ transition: 'color 0.2s ease-in-out' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+              >
+                Meus Pets
+              </a>
+              <a 
+                href="/" 
+                style={{ transition: 'color 0.2s ease-in-out' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+              >
+                Minha Conta
+              </a>
             </>
           ) : (
-            <a href="/login">Fazer Login</a>
+            <a 
+              href="/login"
+              style={{ transition: 'color 0.2s ease-in-out' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#000'}
+            >
+              Fazer Login
+            </a>
           )
         }
       </nav>
     </header>
   );
-};
+}
