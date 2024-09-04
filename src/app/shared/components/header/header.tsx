@@ -1,19 +1,22 @@
 import Navigate from "@utils/navigation";
+import ScrollToElement from "@utils/scroll-to-element";
 
 const isLogged = true;
+const isHomePage = true;
 
 export default function Header() {
   return (
     <header
       style={{
         width: '100%',
-        position: 'fixed',
+        position: 'sticky',
+        top: '0',
         zIndex: '2',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#79B8AA',
-        padding: '1rem 2rem',
+        padding: '1vw 2vw',
         fontWeight: 'bold',
         fontSize: '1.8rem'
       }}
@@ -27,11 +30,8 @@ export default function Header() {
         }}
       >
         <button
-          onClick={Navigate('/home')}
+          onClick={isHomePage ? ScrollToElement('top') : Navigate('/home')}
           style={{
-            backgroundColor: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
             backgroundImage: 'url("svg/brasao-americana.svg")',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
@@ -56,22 +56,22 @@ export default function Header() {
           gap: '3vw'
         }}
       >
-        <a 
-          href="/" 
+        <button
+          onClick={ScrollToElement('mid')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Como Funciona ?
-        </a>
-        <a 
-          href="/" 
+        </button>
+        <button 
+          onClick={ScrollToElement('bot')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Campanhas Ativas
-        </a>
+        </button>
         {
           isLogged ? (
             <>

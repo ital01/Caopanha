@@ -6,13 +6,12 @@ export default function MainContainer(
   return (
     <main
       style={{
+        width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        padding: '1vh 1vw',
-        overflow: 'hidden',
       }}
     >
       {children}

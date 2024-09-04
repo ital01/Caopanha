@@ -4,6 +4,9 @@ html {
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  background-color: #F8F8F8;
 }
 
 body {
@@ -14,6 +17,17 @@ body {
   line-height: 1.5;
   display: flex;
   flex-direction: column;
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  scroll-snap-align: start;
+  height: 95vh;
+  width: 100%;
+  padding-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 *, *::before, *::after {
@@ -35,6 +49,12 @@ img, picture, video, canvas, svg {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 button, input, select, textarea {
