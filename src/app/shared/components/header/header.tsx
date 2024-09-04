@@ -1,8 +1,16 @@
+import { useLocation } from "react-router-dom";
 import Navigate from "@utils/navigation";
 import ScrollToElement from "@utils/scroll-to-element";
 
+function location() {
+  return useLocation();
+}
+
+function isHome() {
+  return location().pathname === '/home';
+}
+
 const isLogged = true;
-const isHomePage = true;
 
 export default function Header() {
   return (
@@ -30,7 +38,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHomePage ? ScrollToElement('top') : Navigate('/home')}
+          onClick={isHome() ? ScrollToElement('top') : Navigate('/home')}
           style={{
             backgroundImage: 'url("svg/brasao-americana.svg")',
             backgroundSize: 'contain',
