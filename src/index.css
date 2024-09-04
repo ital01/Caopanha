@@ -33,7 +33,6 @@ body {
 body, h1, h2, h3, h4, h5, h6, p, figure, blockquote {
   margin: 0;
   padding: 0;
-  color: #1a1a1a;
 }
 
 img, picture, video, canvas, svg {
@@ -45,12 +44,14 @@ img, picture, video, canvas, svg {
 a {
   text-decoration: none;
   color: inherit;
+  color: #1A1A1A;
 }
 
 button {
   cursor: pointer;
   border: none;
   background: none;
+  color: #1A1A1A;
 }
 
 button, input, select, textarea {

@@ -10,7 +10,9 @@ function isHome() {
   return location().pathname === '/home';
 }
 
-const isLogged = true;
+function isLogged() {
+  return true;
+}
 
 export default function Header() {
   return (
@@ -81,7 +83,7 @@ export default function Header() {
           Campanhas Ativas
         </button>
         {
-          isLogged ? (
+          isLogged() ? (
             <>
               <a 
                 href="/" 
