@@ -12,6 +12,7 @@ export default function MainContainer(
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        padding: '1vw 0',
       }}
     >
       {children}

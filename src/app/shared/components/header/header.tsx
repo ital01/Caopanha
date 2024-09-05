@@ -20,9 +20,8 @@ export default function Header() {
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#79B8AA',
-        padding: '1rem 2rem',
+        padding: '0.5vw 1vw',
         fontWeight: 'bold',
-        fontSize: '1.8rem'
       }}
     >
       <div
@@ -30,25 +29,25 @@ export default function Header() {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          gap: '1rem',
+          gap: '0.5vw',
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('top') : ()=>navigate(environment.repoName)}
+          onClick={isHome ? ScrollToElement('top') : () => navigate(environment.repoName)}
           style={{
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundImage: `url(${environment.repoName}/svg/brasao-americana.svg)`,
-            height: '7vh',
-            width: '7vh',
+            height: '4vw',
+            width: '6vw',
             transition: 'transform 0.2s ease-in-out',
           }}
           onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           aria-label="Brasão de Americana"
         />
-        <p style={{ fontSize: '1.8rem' }}>Prefeitura de Americana</p>
+        <p>Prefeitura de Americana</p> 
       </div>
 
       <nav
@@ -61,7 +60,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('mid') : ()=>navigate(environment.repoName)}
+          onClick={isHome ? ScrollToElement('mid') : () => navigate(environment.repoName)}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -69,7 +68,7 @@ export default function Header() {
           Como Funciona ?
         </button>
         <button 
-          onClick={()=>navigate(`${environment.repoName}/campanhas`)}
+          onClick={() => navigate(`${environment.repoName}/campanhas`)}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -80,7 +79,7 @@ export default function Header() {
           isLogged ? (
             <>
               <button
-                onClick={()=>navigate(`${environment.repoName}/agendamentos`)}
+                onClick={() => navigate(`${environment.repoName}/agendamentos`)}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -88,7 +87,7 @@ export default function Header() {
                 Agendamentos
               </button>
               <button
-                onClick={()=>navigate(`${environment.repoName}/pets`)} 
+                onClick={() => navigate(`${environment.repoName}/pets`)} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -96,7 +95,7 @@ export default function Header() {
                 Meus Pets
               </button>
               <button
-                onClick={()=>navigate(`${environment.repoName}/dashboard`)} 
+                onClick={() => navigate(`${environment.repoName}/dashboard`)} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -106,7 +105,7 @@ export default function Header() {
             </>
           ) : (
             <button 
-              onClick={()=>navigate(`${environment.repoName}/login`)}
+              onClick={() => navigate(`${environment.repoName}/login`)}
               style={{ transition: 'color 0.2s ease-in-out' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
