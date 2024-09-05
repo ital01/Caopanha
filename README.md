@@ -1,4 +1,3 @@
-```md
 # 🐾 **Cãopanha** 🐾
 
 ### _Gerencie e acompanhe campanhas de vacinação para seus pets!_
@@ -68,4 +67,3 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 ---
 
 > 🎉 **Pronto!** Agora você pode explorar e utilizar todas as funcionalidades do sistema **Cãopanha**! 🎉
-``` 
