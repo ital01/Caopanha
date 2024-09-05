@@ -13,7 +13,6 @@ export default function AppRoutes() {
       {showHeaderFooter && <Header />}
       <Routes>
         <Route path="/Caopanha" element={<Home />} />
-        <Route path="/Caopanha/home" element={<Home />} />
         <Route path="/Caopanha/login" element={<Login />} />
       </Routes>
       {/* {!hideHeaderFooter && <Footer />} */}

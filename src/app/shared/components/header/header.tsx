@@ -5,7 +5,7 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isHome = location.pathname === '/Caopanha/home';
+  const isHome = location.pathname === '/Caopanha';
   const isLogged = false;
 
   return (
@@ -33,7 +33,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('top') : ()=>navigate('/Caopanha/home')}
+          onClick={isHome ? ScrollToElement('top') : ()=>navigate('/Caopanha')}
           style={{
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
@@ -59,7 +59,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('mid') : ()=>navigate('/Caopanha/home')}
+          onClick={isHome ? ScrollToElement('mid') : ()=>navigate('/Caopanha')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -67,7 +67,7 @@ export default function Header() {
           Como Funciona ?
         </button>
         <button 
-          onClick={isHome ? ScrollToElement('bot') : ()=>navigate('/Caopanha/home')}
+          onClick={isHome ? ScrollToElement('bot') : ()=>navigate('/Caopanha')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
