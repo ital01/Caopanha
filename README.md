@@ -7,7 +7,7 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 - **Frontend**: React.js
 - **Backend**: Nest.js
 - **Banco de Dados**: MySQL
-- **Outras Ferramentas**: JavaScript, TypeScript, Yarn, HTML 5, CSS 3
+- **Outras Ferramentas**: JavaScript, TypeScript, Yarn, Vite.js, HTML 5, CSS 3
 
 ## Funcionalidades
 - **Gerenciamento de campanhas**: As clínicas e prefeituras podem criar e editar campanhas de vacinação para diferentes tipos de pets.
@@ -31,6 +31,8 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 2. Instale as dependências:
   ```bash
   cd Caopanha
+  ```
+  ```bash
   yarn install
   ```
 
