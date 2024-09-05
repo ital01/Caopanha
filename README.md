@@ -1,5 +1,3 @@
-Aqui está a versão atualizada do `README.md` com links adicionados para as tecnologias mencionadas:
-
 ```md
 # 🐾 **Cãopanha** 🐾
 
