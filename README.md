@@ -2,7 +2,18 @@
 
 ### _Gerencie e acompanhe campanhas de vacinação para seus pets!_
 
+
 ---
+
+
+## 🌐 **Preview**
+Confira a demonstração do projeto acessando o link abaixo:
+
+🔗 [Cãopanha - Preview Online](https://ital01.github.io/Caopanha/)
+
+
+---
+
 
 ## 📝 **Descrição**
 Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação para pets, proporcionando uma forma eficiente de organizar e acompanhar a saúde dos animais. A plataforma permite que **clínicas veterinárias** criem e administrem campanhas de vacinação, enquanto os **donos de pets** podem:
@@ -73,7 +84,7 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
    yarn start
    ```
 
-4. **Acesse o projeto no navegador**:
+4. **Acesse o projeto clonado no seu navegador**:
    - 🌐 [http://localhost:4000](http://localhost:4000)
 
 🎉 **Pronto!** Agora você pode explorar e utilizar todas as funcionalidades do sistema **Cãopanha**! 🎉
