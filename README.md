@@ -63,6 +63,8 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 2. **Instale as dependências**:
    ```bash
    cd Caopanha
+   ```
+   ```bash
    yarn install
    ```
 
