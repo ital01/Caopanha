@@ -1,9 +1,9 @@
 import { ViewUsers } from "@components/users/users";
 
-export default function Register() {
+export default function Pets() {
   return (
     <div>
-      <h1>Cadastro</h1>
+      <h1>Pets</h1>
       <ViewUsers />
     </div>
   );

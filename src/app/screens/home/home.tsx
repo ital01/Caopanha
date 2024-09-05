@@ -3,6 +3,7 @@ import MainContainer from "@components/main-container/main-container";
 import SlideDownText from "@components/slide-down-text/slide-down-text";
 import SlideUpImage from "@components/slide-up-image/slide-up-image";
 import WaveLetter from "@components/wave-letter/wave-letter";
+import environment from "@environment/environment";
 
 export default function Home() {
   const [animateWave, setAnimateWave] = useState(false);
@@ -22,7 +23,7 @@ export default function Home() {
         <SlideDownText fontSize="3rem">
           Agende por aqui a vacinação do seu pet
         </SlideDownText>
-        <SlideUpImage src="images/pets.webp" alt="Imagem de Animais" />
+        <SlideUpImage src={`${environment.repoName}/images/pets.webp`} alt="Imagem de Animais" />
       </section>
 
       <section id="mid" className="section">
@@ -31,15 +32,6 @@ export default function Home() {
         </SlideDownText>
         <SlideDownText fontSize="3rem">
           É facil assim?
-        </SlideDownText>
-      </section>
-
-      <section id="bot" className="section">
-        <SlideDownText fontSize="4rem">
-          Confira as Campanhas Ativas
-        </SlideDownText>
-        <SlideDownText fontSize="3rem">
-          E não perca a oportunidade de cuidar de quem mais precisa de você
         </SlideDownText>
       </section>
     </MainContainer>

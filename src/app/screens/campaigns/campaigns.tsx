@@ -1,9 +1,9 @@
 import { ViewUsers } from "@components/users/users";
 
-export default function Register() {
+export default function Campaigns() {
   return (
     <div>
-      <h1>Cadastro</h1>
+      <h1>Campanhas</h1>
       <ViewUsers />
     </div>
   );

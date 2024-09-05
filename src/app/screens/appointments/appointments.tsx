@@ -1,9 +1,9 @@
 import { ViewUsers } from "@components/users/users";
 
-export default function Register() {
+export default function Appointments() {
   return (
     <div>
-      <h1>Cadastro</h1>
+      <h1>Agendamentos</h1>
       <ViewUsers />
     </div>
   );
