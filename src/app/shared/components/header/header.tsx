@@ -38,6 +38,7 @@ export default function Header() {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            backgroundImage: '/svg/brasao-americana.svg',
             height: '7vh',
             width: '7vh',
             transition: 'transform 0.2s ease-in-out',
@@ -59,7 +60,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('mid') : ()=>navigate('/Caopanha')}
+          onClick={isHome ? ScrollToElement('mid') : ()=>navigate('/Caopanha/home')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -67,7 +68,7 @@ export default function Header() {
           Como Funciona ?
         </button>
         <button 
-          onClick={isHome ? ScrollToElement('bot') : ()=>navigate('/Caopanha')}
+          onClick={isHome ? ScrollToElement('bot') : ()=>navigate('/Caopanha/home')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
