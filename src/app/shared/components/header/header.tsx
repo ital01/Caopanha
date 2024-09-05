@@ -35,7 +35,6 @@ export default function Header() {
         <button
           onClick={isHome ? ScrollToElement('top') : ()=>navigate('/Caopanha/home')}
           style={{
-            backgroundImage: 'url("svg/brasao-americana.svg")',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',

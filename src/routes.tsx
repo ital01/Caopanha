@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './app/screens/home/home';
 import Login from './app/screens/login/login';
 import Header from '@components/header/header';
@@ -12,7 +12,7 @@ export default function AppRoutes() {
     <>
       {showHeaderFooter && <Header />}
       <Routes>
-        <Route path="/Caopanha" element={<Navigate to="/Caopanha/home" />} />
+        <Route path="/Caopanha" element={<Home />} />
         <Route path="/Caopanha/home" element={<Home />} />
         <Route path="/Caopanha/login" element={<Login />} />
       </Routes>
