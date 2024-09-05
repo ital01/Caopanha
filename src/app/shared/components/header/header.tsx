@@ -39,7 +39,7 @@ export default function Header() {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundImage: `url(${environment.repoName}/images/brasao-americana.svg)`,
+            backgroundImage: `url(${environment.repoName}/svg/brasao-americana.svg)`,
             height: '7vh',
             width: '7vh',
             transition: 'transform 0.2s ease-in-out',
