@@ -10,7 +10,9 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 - Agendar vacinações,
 - Receber notificações sobre as próximas doses.
 
+
 ---
+
 
 ## 🛠️ **Tecnologias Utilizadas**
 
@@ -25,17 +27,25 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
   - 🖼️ [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
   - 🎨 [CSS 3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
+
 ---
+
 
 ## 🌟 **Funcionalidades**
 
 - **📅 Gerenciamento de campanhas**: Clínicas e prefeituras podem criar e editar campanhas de vacinação para diferentes tipos de pets.
+
 - **🐕 Cadastro de pets**: Donos podem cadastrar seus pets no sistema e associá-los a campanhas de vacinação.
+
 - **📲 Notificações automáticas**: O sistema envia notificações aos donos sobre datas de vacinação e alertas de doses pendentes.
+
 - **📜 Histórico de vacinação**: Cada pet tem um histórico detalhado de todas as vacinas administradas.
+
 - **📊 Painel de administração**: Clínicas podem visualizar estatísticas sobre campanhas, como o número de pets vacinados e campanhas ativas.
 
+
 ---
+
 
 ## 🚀 **Como Executar o Projeto**
 
@@ -64,6 +74,4 @@ Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação
 4. **Acesse o projeto no navegador**:
    - 🌐 [http://localhost:4000](http://localhost:4000)
 
----
-
-> 🎉 **Pronto!** Agora você pode explorar e utilizar todas as funcionalidades do sistema **Cãopanha**! 🎉
+🎉 **Pronto!** Agora você pode explorar e utilizar todas as funcionalidades do sistema **Cãopanha**! 🎉
