@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <MainContainer>
       <section id="top" className="section">
-        <SlideDownText> 
+        <SlideDownText>
           <span>Agora ficou fácil cuidar do seu </span>
           <WaveLetter letter='a' color="#01BBB2" delay={0.1} animateWave={animateWave} />
           <WaveLetter letter='m' color="#FE684D" delay={0.3} animateWave={animateWave} />
