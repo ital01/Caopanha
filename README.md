@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# 🐾 **Cãopanha** 🐾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### _Gerencie e acompanhe campanhas de vacinação para seus pets!_
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🌐 **Preview**
+Confira a demonstração do projeto acessando o link abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+🔗 [Cãopanha - Preview Online](https://ital01.github.io/Caopanha/)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 📝 **Descrição**
+Cãopanha é um sistema web desenvolvido para gerenciar campanhas de vacinação para pets, proporcionando uma forma eficiente de organizar e acompanhar a saúde dos animais. A plataforma permite que **clínicas veterinárias** criem e administrem campanhas de vacinação, enquanto os **donos de pets** podem:
+- Acompanhar as campanhas,
+- Agendar vacinações,
+- Receber notificações sobre as próximas doses.
+
+
+---
+
+
+## 🛠️ **Tecnologias Utilizadas**
+
+- **Frontend**: ⚛️ [React.js](https://reactjs.org/)
+- **Backend**: 🟢 [Nest.js](https://nestjs.com/)
+- **Banco de Dados**: 🐬 [MySQL](https://www.mysql.com/)
+- **Outras Ferramentas**: 
+  - 📜 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - 🟦 [TypeScript](https://www.typescriptlang.org/)
+  - 📦 [Yarn](https://yarnpkg.com/)
+  - ⚡ [Vite.js](https://vitejs.dev/)
+  - 🖼️ [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+  - 🎨 [CSS 3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+
+---
+
+
+## 🌟 **Funcionalidades**
+
+- **📅 Gerenciamento de campanhas**: Clínicas e prefeituras podem criar e editar campanhas de vacinação para diferentes tipos de pets.
+
+- **🐕 Cadastro de pets**: Donos podem cadastrar seus pets no sistema e associá-los a campanhas de vacinação.
+
+- **📲 Notificações automáticas**: O sistema envia notificações aos donos sobre datas de vacinação e alertas de doses pendentes.
+
+- **📜 Histórico de vacinação**: Cada pet tem um histórico detalhado de todas as vacinas administradas.
+
+- **📊 Painel de administração**: Clínicas podem visualizar estatísticas sobre campanhas, como o número de pets vacinados e campanhas ativas.
+
+
+---
+
+
+## 🚀 **Como Executar o Projeto**
+
+### Pré-requisitos
+
+- 🟢 [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- 📦 [Yarn](https://yarnpkg.com/)
+
+### ⚙️ **Instalação**
+
+1. **Clone o repositório**: 
+   ```bash
+   git clone https://github.com/ital01/Caopanha.git
+   ```
+2. **Instale as dependências**:
+   ```bash
+   cd Caopanha
+   ```
+   ```bash
+   yarn install
+   ```
+
+3. **Inicie o servidor de desenvolvimento**:
+   ```bash
+   yarn start
+   ```
+
+4. **Acesse o projeto clonado no seu navegador**:
+   - 🌐 [http://localhost:4000](http://localhost:4000)
+
+🎉 **Pronto!** Agora você pode explorar e utilizar todas as funcionalidades do sistema **Cãopanha**! 🎉

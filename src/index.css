@@ -5,16 +5,58 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   background-color: #F8F8F8;
+  color: #1A1A1A;
 }
 
 body {
   width: 100%;
   height: 100vh;
   font-family: inherit;
+  color: #1A1A1A;
   font-size: 1.6rem;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+  body {
+    font-size: 1.65rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  body {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 2560px) {
+  body {
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 2561px) {
+  body {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
 }
 
 .section {
@@ -89,4 +131,35 @@ button, input, select, textarea {
 
 *::-webkit-scrollbar-thumb:active {
   background-color: #C3C3C3;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
 }

@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
 export default function SlideDownText(
-  { children, fontSize }: { children: ReactNode, fontSize: string }
+  { children }: { children: ReactNode }
 ) {
   return (
     <div
+      className="title"
       style={{
-        fontSize: fontSize,
         animation: 'slideDown 1s ease-out',
         overflow: 'hidden',
       }}

@@ -1,12 +1,13 @@
 export default function SlideUpImage(
-  { src, alt }: { src: string, alt: string }
+  { src, alt, width }: { src: string, alt: string, width: string }
 ) {
   return (
     <img
       src={src}
       alt={alt}
       style={{
-        width: '55vw',
+        width: width,
+        height: 'auto',
         animation: 'slideUp 1s ease-out',
         overflow: 'hidden',
       }}
