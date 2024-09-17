@@ -6,14 +6,12 @@ dotenv.config();
 const targetPath = 'src/app/shared/environment/environment.ts';
 
 const apiUrl = process.env.API;
-const repoName = process.env.REPO_NAME;
 const production = process.env.PRODUCTION;
 
 const envConfigFile = (
 `const environment = {
   production: ${production},
   apiUrl: '${apiUrl}',
-  repoName: '${repoName}'
 };
 
 export default environment;`

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LabeledInput from "@components/labeled-input/labeled-input";
 import MainContainer from "@components/main-container/main-container";
-import environment from "@environment/environment";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,7 +34,7 @@ export default function Login() {
         }}
       >
         <img
-          src={`${environment.repoName}/images/image.webp`}
+          src={`/images/image.webp`}
           alt="Pets"
           style={{
             width: "70%",

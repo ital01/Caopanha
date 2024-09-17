@@ -3,7 +3,6 @@ import MainContainer from "@components/main-container/main-container";
 import SlideDownText from "@components/slide-down-text/slide-down-text";
 import SlideUpImage from "@components/slide-up-image/slide-up-image";
 import WaveLetter from "@components/wave-letter/wave-letter";
-import environment from "@environment/environment";
 
 export default function Home() {
   const [animateWave, setAnimateWave] = useState(false);
@@ -24,7 +23,7 @@ export default function Home() {
           Agende por aqui a vacinação do seu pet
         </SlideDownText>
         <SlideUpImage
-          src={`${environment.repoName}/images/pets.webp`}
+          src={`/images/pets.webp`}
           alt="Imagem de Animais"
           width="55vw"
         />

@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ital01.github.io/Caopanha",
+  "homepage": "http://201.1.162.182:3000/home",
   "name": "caopanha",
   "private": true,
   "version": "0.0.0",
@@ -7,6 +7,7 @@
   "scripts": {
     "mock": "json-server --watch mock/mock-db.json --port 3000 &",
     "start": "node set-env.js && vite",
+    "server": "node set-env.js && vite --host 0.0.0.0 --port 3000",
     "stop-mock": "lsof -t -i:3000 | xargs kill -9 || echo 'No mock server running on port 3000'",
     "restart": "yarn stop-mock && yarn mock && yarn start",
     "build": "node set-env.js && tsc -b && vite build",

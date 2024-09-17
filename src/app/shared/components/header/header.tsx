@@ -1,12 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import ScrollToElement from "@utils/scroll-to-element";
-import environment from '@environment/environment';
 
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isHome = location.pathname === environment.repoName;
+  const isHome = location.pathname === '/home';
   const isLogged = false;
 
   return (
@@ -33,12 +32,12 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('top') : () => navigate(environment.repoName)}
+          onClick={isHome ? ScrollToElement('top') : () => navigate('/home')}
           style={{
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundImage: `url(${environment.repoName}/svg/brasao-americana.svg)`,
+            backgroundImage: `url(/svg/brasao-americana.svg)`,
             height: '4vw',
             width: '6vw',
             transition: 'transform 0.2s ease-in-out',
@@ -60,7 +59,7 @@ export default function Header() {
         }}
       >
         <button
-          onClick={isHome ? ScrollToElement('mid') : () => navigate(environment.repoName)}
+          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -68,7 +67,7 @@ export default function Header() {
           Como Funciona ?
         </button>
         <button 
-          onClick={() => navigate(`${environment.repoName}/campanhas`)}
+          onClick={() => navigate(`/campanhas`)}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -79,7 +78,7 @@ export default function Header() {
           isLogged ? (
             <>
               <button
-                onClick={() => navigate(`${environment.repoName}/agendamentos`)}
+                onClick={() => navigate(`/agendamentos`)}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -87,7 +86,7 @@ export default function Header() {
                 Agendamentos
               </button>
               <button
-                onClick={() => navigate(`${environment.repoName}/pets`)} 
+                onClick={() => navigate(`/pets`)} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -95,7 +94,7 @@ export default function Header() {
                 Meus Pets
               </button>
               <button
-                onClick={() => navigate(`${environment.repoName}/dashboard`)} 
+                onClick={() => navigate(`/dashboard`)} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -105,7 +104,7 @@ export default function Header() {
             </>
           ) : (
             <button 
-              onClick={() => navigate(`${environment.repoName}/login`)}
+              onClick={() => navigate(`/login`)}
               style={{ transition: 'color 0.2s ease-in-out' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
