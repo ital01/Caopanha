@@ -12,6 +12,7 @@ export default function Header() {
     <header
       style={{
         width: '100%',
+        height: '10vh',
         position: 'sticky',
         top: '0',
         zIndex: '2',

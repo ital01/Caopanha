@@ -108,7 +108,7 @@ export default function Login() {
               onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
               onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-                Entrar
+              Entrar
             </button>
           </form>
           <br /><br />

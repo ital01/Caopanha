@@ -7,10 +7,12 @@ export default function MainContainer(
     <main
       style={{
         width: '100%',
-        height: '100vh',
+        height: '90vh',
+        overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        padding: '1vw 0',
+        padding: '30px',
+        gap: '64px'
       }}
     >
       {children}
