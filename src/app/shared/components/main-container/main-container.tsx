@@ -12,7 +12,7 @@ export default function MainContainer(
         display: 'flex',
         flexDirection: 'column',
         padding: '30px',
-        gap: '64px'
+        gap: '48px'
       }}
     >
       {children}
