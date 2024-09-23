@@ -1,4 +1,4 @@
-import Users from "@controllers/user.controller";
+import Users from '@controllers/user.controller';
 
 export function ViewUsers() {
 

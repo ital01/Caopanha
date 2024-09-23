@@ -1,20 +1,20 @@
-import { useState } from "react";
-import LabeledInput from "@components/labeled-input/labeled-input";
-import MainContainer from "@components/main-container/main-container";
+import { useState } from 'react';
+import LabeledInput from '@components/labeled-input/labeled-input';
+import MainContainer from '@components/main-container/main-container';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Formulário enviado");
+    console.log('Formulário enviado');
     console.log({ email: email, senha: password });
   };
 
   return (
     <MainContainer>
-      <h1 
+      <h1
         style={{
           width: '100%',
           textAlign: 'center',
@@ -27,33 +27,33 @@ export default function Login() {
       </h1>
       <section
         style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          marginTop: "auto",
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          marginTop: 'auto',
         }}
       >
         <img
-          src={`/images/image.webp`}
+          src={'/images/image.webp'}
           alt="Pets"
           style={{
-            width: "70%",
+            width: '70%',
           }}
         />
         <div
           style={{
-            width: "30%",
-            display: "flex",
-            flexDirection: "column",
-            paddingRight: "10rem",
-            marginTop: "1rem",
+            width: '30%',
+            display: 'flex',
+            flexDirection: 'column',
+            paddingRight: '10rem',
+            marginTop: '1rem',
           }}
         >
           <form
             onSubmit={handleSubmit}
             style={{
-            display: 'flex',
-            flexDirection: 'column',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <LabeledInput
@@ -95,7 +95,7 @@ export default function Login() {
               style={{
                 backgroundColor: '#01BBB2',
                 color: '#fff',
-                alignSelf:'end',
+                alignSelf: 'end',
                 borderRadius: '0.8rem',
                 padding: '1rem 2rem',
                 fontSize: '2.4rem',

@@ -1,4 +1,4 @@
-import { ViewUsers } from "@components/users/users";
+import { ViewUsers } from '@components/users/users';
 
 export default function Campaigns() {
   return (

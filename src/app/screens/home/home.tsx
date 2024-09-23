@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import MainContainer from "@components/main-container/main-container";
-import SlideDownText from "@components/slide-down-text/slide-down-text";
-import SlideUpImage from "@components/slide-up-image/slide-up-image";
-import WaveLetter from "@components/wave-letter/wave-letter";
+import { useEffect, useState } from 'react';
+import MainContainer from '@components/main-container/main-container';
+import SlideDownText from '@components/slide-down-text/slide-down-text';
+import SlideUpImage from '@components/slide-up-image/slide-up-image';
+import WaveLetter from '@components/wave-letter/wave-letter';
 
 export default function Home() {
   const [animateWave, setAnimateWave] = useState(false);
@@ -19,21 +19,21 @@ export default function Home() {
           <WaveLetter letter='g' color="#FE684D" delay={0.7} animateWave={animateWave} />
           <WaveLetter letter='o' color="#01BBB2" delay={0.9} animateWave={animateWave} />
         </SlideDownText>
-        <SlideDownText> 
+        <SlideDownText>
           Agende por aqui a vacinação do seu pet
         </SlideDownText>
         <SlideUpImage
-          src={`/images/pets.webp`}
+          src={'/images/pets.webp'}
           alt="Imagem de Animais"
           width="55vw"
         />
       </section>
 
       <section id="mid" className="section">
-        <SlideDownText> 
+        <SlideDownText>
           Como Funciona ?
         </SlideDownText>
-        <SlideDownText> 
+        <SlideDownText>
           É facil assim?
         </SlideDownText>
       </section>

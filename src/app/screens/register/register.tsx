@@ -1,6 +1,6 @@
-import LabeledInput from "@components/labeled-input/labeled-input";
-import MainContainer from "@components/main-container/main-container";
-import { useState } from "react";
+import LabeledInput from '@components/labeled-input/labeled-input';
+import MainContainer from '@components/main-container/main-container';
+import { useState } from 'react';
 
 interface FormData {
   nome: string,
@@ -72,7 +72,7 @@ export default function Register() {
         </div>
         <div
           style={{
-            display: "flex",
+            display: 'flex',
             flexDirection: 'column',
             width: '100%',
             height: '100%',
@@ -82,7 +82,7 @@ export default function Register() {
         >
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               flexDirection: 'column',
               width: '100%',
               justifyContent: 'start',

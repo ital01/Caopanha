@@ -6,7 +6,7 @@ import Register from './app/screens/register/register';
 
 export default function AppRoutes() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== `/login`;
+  const showHeaderFooter = location.pathname !== '/login';
 
   return (
     <>

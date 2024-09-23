@@ -1,5 +1,5 @@
-import { UserDto } from "@data/dto/users.dto";
-import { UserVo } from "@data/vo/users.vo";
+import { UserDto } from '@data/dto/users.dto';
+import { UserVo } from '@data/vo/users.vo';
 
 function usersMapper(users: UserDto[]): UserVo[] {
   return users.map(user => ({

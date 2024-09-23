@@ -8,7 +8,8 @@ export default function LabeledInput(
     label: string,
     type: string,
     value?: string,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void 
+    // eslint-disable-next-line no-unused-vars
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   }
 ) {
   return (
@@ -22,7 +23,7 @@ export default function LabeledInput(
       <label
         htmlFor={`input-${label}`}
         style={{
-          fontSize: '2.4rem',
+          fontSize: '1.8rem',
           fontWeight: 'lighter',
           letterSpacing: '0.1rem',
         }}

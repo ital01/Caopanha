@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import ScrollToElement from "@utils/scroll-to-element";
+import { useLocation, useNavigate } from 'react-router-dom';
+import ScrollToElement from '@utils/scroll-to-element';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function Header() {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundImage: `url(/svg/brasao-americana.svg)`,
+            backgroundImage: 'url(/svg/brasao-americana.svg)',
             height: '4vw',
             width: '6vw',
             transition: 'transform 0.2s ease-in-out',
@@ -47,7 +47,7 @@ export default function Header() {
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           aria-label="Brasão de Americana"
         />
-        <p>Prefeitura de Americana</p> 
+        <p>Prefeitura de Americana</p>
       </div>
 
       <nav
@@ -67,8 +67,8 @@ export default function Header() {
         >
           Como Funciona ?
         </button>
-        <button 
-          onClick={() => navigate(`/campanhas`)}
+        <button
+          onClick={() => navigate('/campanhas')}
           style={{ transition: 'color 0.2s ease-in-out' }}
           onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
           onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -79,7 +79,7 @@ export default function Header() {
           isLogged ? (
             <>
               <button
-                onClick={() => navigate(`/agendamentos`)}
+                onClick={() => navigate('/agendamentos')}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -87,7 +87,7 @@ export default function Header() {
                 Agendamentos
               </button>
               <button
-                onClick={() => navigate(`/pets`)} 
+                onClick={() => navigate('/pets')}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -95,7 +95,7 @@ export default function Header() {
                 Meus Pets
               </button>
               <button
-                onClick={() => navigate(`/dashboard`)} 
+                onClick={() => navigate('/dashboard')}
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
@@ -104,8 +104,8 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <button 
-              onClick={() => navigate(`/login`)}
+            <button
+              onClick={() => navigate('/login')}
               style={{ transition: 'color 0.2s ease-in-out' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
