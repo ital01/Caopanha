@@ -28,25 +28,56 @@ export default function Register() {
 
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
+  const validateField = (label: keyof FormData, value: string) => {
+    let error = '';
+    switch (label) {
+    case 'nome':
+      if (!value) error = 'Nome é obrigatório';
+      break;
+    case 'endereco':
+      if (!value) error = 'Endereço é obrigatório';
+      break;
+    case 'cpf':
+      if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(value)) error = 'CPF inválido';
+      break;
+    case 'email':
+      if (!/\S+@\S+\.\S+/.test(value)) error = 'Email inválido';
+      break;
+    case 'telefone':
+      if (!/^\(\d{2}\) \d{5}-\d{4}$/.test(value)) error = 'Telefone inválido';
+      break;
+    case 'dataDeNascimento':
+      if (!/^\d{2}\/\d{2}\/\d{4}$/.test(value)) error = 'Data de nascimento inválida';
+      break;
+    case 'animal':
+      if (!value) error = 'Nome do animal é obrigatório';
+      break;
+    case 'idadeDoAnimal':
+      if (!/^\d+$/.test(value) || parseInt(value) < 0) error = 'Idade do animal inválida';
+      break;
+    default:
+      break;
+    }
+    setErrors((prevErrors) => ({ ...prevErrors, [label]: error }));
+  };
+
   const handleInputChange = (label: keyof FormData, value: string) => {
     setFormData((prevData) => ({ ...prevData, [label]: value }));
+    validateField(label, value);
+  };
+
+  const handleBlur = (label: keyof FormData) => {
+    validateField(label, formData[label]);
   };
 
   const validateForm = () => {
     const newErrors: Partial<FormData> = {};
-
-    if (!formData.nome) newErrors.nome = 'Nome é obrigatório';
-    if (!formData.endereco) newErrors.endereco = 'Endereço é obrigatório';
-    if (!/^\d{11}$/.test(formData.cpf)) newErrors.cpf = 'CPF inválido';
-    if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email inválido';
-    if (!/^\(\d{2}\) \d{5}-\d{4}$/.test(formData.telefone)) newErrors.telefone = 'Telefone inválido';
-    if (!formData.dataDeNascimento) newErrors.dataDeNascimento = 'Data de nascimento inválida';
-    if (!formData.animal) newErrors.animal = 'Nome do animal é obrigatório';
-    if (!/^\d+$/.test(formData.idadeDoAnimal) || parseInt(formData.idadeDoAnimal) < 0) {
-      newErrors.idadeDoAnimal = 'Idade do animal inválida';
-    }
-
-    setErrors(newErrors);
+    Object.keys(formData).forEach((key) => {
+      validateField(key as keyof FormData, formData[key as keyof FormData]);
+      if (errors[key as keyof FormData]) {
+        newErrors[key as keyof FormData] = errors[key as keyof FormData];
+      }
+    });
     return Object.keys(newErrors).length === 0;
   };
 
@@ -90,6 +121,7 @@ export default function Register() {
                 type="text"
                 value={formData.nome}
                 onChange={(e) => handleInputChange('nome', e.target.value)}
+                onBlur={() => handleBlur('nome')}
                 error={errors.nome}
               />
 
@@ -98,6 +130,7 @@ export default function Register() {
                 type="text"
                 value={formData.endereco}
                 onChange={(e) => handleInputChange('endereco', e.target.value)}
+                onBlur={() => handleBlur('endereco')}
                 error={errors.endereco}
               />
 
@@ -106,7 +139,9 @@ export default function Register() {
                 type="text"
                 value={formData.telefone}
                 onChange={(e) => handleInputChange('telefone', e.target.value)}
+                onBlur={() => handleBlur('telefone')}
                 error={errors.telefone}
+                mask="(99) 99999-9999"
               />
 
               <LabeledInput
@@ -114,7 +149,9 @@ export default function Register() {
                 type="text"
                 value={formData.cpf}
                 onChange={(e) => handleInputChange('cpf', e.target.value)}
+                onBlur={() => handleBlur('cpf')}
                 error={errors.cpf}
+                mask="999.999.999-99"
               />
             </div>
             <div className="form-column">
@@ -123,7 +160,9 @@ export default function Register() {
                 type="text"
                 value={formData.dataDeNascimento}
                 onChange={(e) => handleInputChange('dataDeNascimento', e.target.value)}
+                onBlur={() => handleBlur('dataDeNascimento')}
                 error={errors.dataDeNascimento}
+                mask="99/99/9999"
               />
 
               <LabeledInput
@@ -131,6 +170,7 @@ export default function Register() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
+                onBlur={() => handleBlur('email')}
                 error={errors.email}
               />
 
@@ -139,28 +179,22 @@ export default function Register() {
                 type="text"
                 value={formData.animal}
                 onChange={(e) => handleInputChange('animal', e.target.value)}
+                onBlur={() => handleBlur('animal')}
                 error={errors.animal}
               />
 
               <LabeledInput
-                label="Idade do animal"
+                label="Idade do Animal"
                 type="text"
                 value={formData.idadeDoAnimal}
                 onChange={(e) => handleInputChange('idadeDoAnimal', e.target.value)}
+                onBlur={() => handleBlur('idadeDoAnimal')}
                 error={errors.idadeDoAnimal}
               />
             </div>
           </div>
-          <div className="submit-button-container">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="submit-button"
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#019e96'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#01BBB2'}
-              onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
-              onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            >
+          <div className='submit-button-container'>
+            <button className="submit-button" onClick={handleSubmit}>
               Cadastrar
             </button>
           </div>
