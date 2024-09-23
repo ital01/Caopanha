@@ -7,7 +7,7 @@ export default function LabeledInput(
   }: {
     label: string,
     type: string,
-    value: string,
+    value?: string,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void 
   }
 ) {
