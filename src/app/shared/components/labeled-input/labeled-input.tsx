@@ -1,25 +1,20 @@
-export default function LabeledInput(
-  {
-    label,
-    type,
-    value,
-    onChange
-  }: {
-    label: string,
-    type: string,
-    value?: string,
-    // eslint-disable-next-line no-unused-vars
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  }
-) {
+/* eslint-disable no-unused-vars */
+
+export default function LabeledInput({
+  label,
+  type,
+  value,
+  onChange,
+  error,
+}: {
+  label: string;
+  type: string;
+  value?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+}) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-      }}
-    >
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
       <label
         htmlFor={`input-${label}`}
         style={{
@@ -45,6 +40,11 @@ export default function LabeledInput(
           letterSpacing: '0.11rem',
         }}
       />
+      <div style={{
+        height: '25px',
+      }}>
+        {error && <span style={{ color: 'red', fontSize: '1.6rem' }}>{error}</span>}
+      </div>
     </div>
   );
 }

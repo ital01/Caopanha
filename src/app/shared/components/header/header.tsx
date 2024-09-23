@@ -1,5 +1,6 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { To, useLocation, useNavigate } from 'react-router-dom';
 import ScrollToElement from '@utils/scroll-to-element';
+import './header.css';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -8,112 +9,46 @@ export default function Header() {
   const isHome = location.pathname === '/home';
   const isLogged = false;
 
+  const handleScrollOrNavigate = (scrollTarget: string, navigateTo: To) => {
+    return isHome ? ScrollToElement(scrollTarget) : () => navigate(navigateTo);
+  };
+
   return (
-    <header
-      style={{
-        width: '100%',
-        height: '10vh',
-        position: 'sticky',
-        top: '0',
-        zIndex: '2',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#79B8AA',
-        padding: '0.5vw 1vw',
-        fontWeight: 'bold',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: '0.5vw',
-        }}
-      >
+    <header className="header">
+      <div className="header-logo">
         <button
-          onClick={isHome ? ScrollToElement('top') : () => navigate('/home')}
-          style={{
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundImage: 'url(/svg/brasao-americana.svg)',
-            height: '4vw',
-            width: '6vw',
-            transition: 'transform 0.2s ease-in-out',
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          aria-label="Brasão de Americana"
-        />
+          onClick={handleScrollOrNavigate('top', '/home')}
+          className="logo-button"
+        >
+          <img src="svg/brasao-americana.svg" alt="Brasão de Americana" />
+        </button>
         <p>Prefeitura de Americana</p>
       </div>
 
-      <nav
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '3vw'
-        }}
-      >
-        <button
-          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
-          style={{ transition: 'color 0.2s ease-in-out' }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-        >
-          Como Funciona ?
+      <nav className="header-nav">
+        <button onClick={handleScrollOrNavigate('mid', '/home')} className="nav-button">
+          Como Funciona?
         </button>
-        <button
-          onClick={() => navigate('/campanhas')}
-          style={{ transition: 'color 0.2s ease-in-out' }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-        >
+        <button onClick={() => navigate('/campanhas')} className="nav-button">
           Campanhas Ativas
         </button>
-        {
-          isLogged ? (
-            <>
-              <button
-                onClick={() => navigate('/agendamentos')}
-                style={{ transition: 'color 0.2s ease-in-out' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-              >
-                Agendamentos
-              </button>
-              <button
-                onClick={() => navigate('/pets')}
-                style={{ transition: 'color 0.2s ease-in-out' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-              >
-                Meus Pets
-              </button>
-              <button
-                onClick={() => navigate('/dashboard')}
-                style={{ transition: 'color 0.2s ease-in-out' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-              >
-                Minha Conta
-              </button>
-            </>
-          ) : (
-            <button
-              onClick={() => navigate('/login')}
-              style={{ transition: 'color 0.2s ease-in-out' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
-            >
-              Fazer Login
+        {isLogged ? (
+          <>
+            <button onClick={() => navigate('/agendamentos')} className="nav-button">
+              Agendamentos
             </button>
-          )
-        }
+            <button onClick={() => navigate('/pets')} className="nav-button">
+              Meus Pets
+            </button>
+            <button onClick={() => navigate('/dashboard')} className="nav-button">
+              Minha Conta
+            </button>
+          </>
+        ) : (
+          <button onClick={() => navigate('/login')} className="nav-button">
+            Fazer Login
+          </button>
+        )}
       </nav>
     </header>
   );
