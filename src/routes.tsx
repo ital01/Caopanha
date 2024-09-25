@@ -18,7 +18,7 @@ export default function AppRoutes() {
         <Route path="*" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/cadastrar' element={<Register />} />
         <Route path='/campanhas' element={<Campaigns />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
