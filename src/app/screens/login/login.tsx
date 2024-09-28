@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LabeledInput from "@components/labeled-input/labeled-input";
 import MainContainer from "@components/main-container/main-container";
+import { AuthContext } from "../../context/auth.context";
 
 export default function Login() {
+  const {signIn} = useContext(AuthContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Formulário enviado");
-    console.log({ email: email, senha: password });
+  const handleSubmit =async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();  // Certifique-se de chamar isso para evitar a recarga da página
+  console.log('Login iniciado'); // Confirme se está sendo chamado
+      await signIn({email, password, setError})
+    
   };
 
   return (

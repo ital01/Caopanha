@@ -1,12 +1,21 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import ScrollToElement from "@utils/scroll-to-element";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../context/auth.context";
 
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
+  const {user, logout} = useContext(AuthContext)
+  const [isLogged, setIsLogged] = useState(false)
 
   const isHome = location.pathname === '/home';
-  const isLogged = false;
+
+  console.log(user)
+ 
+ useEffect(() => {
+  if(user) setIsLogged(true)
+ },[user])
 
   return (
     <header
@@ -58,14 +67,16 @@ export default function Header() {
           gap: '3vw'
         }}
       >
+        {!user &&
         <button
-          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
-          style={{ transition: 'color 0.2s ease-in-out' }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
+        onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
+        style={{ transition: 'color 0.2s ease-in-out' }}
+        onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+        onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Como Funciona ?
         </button>
+        }
         <button 
           onClick={() => navigate(`/campanhas`)}
           style={{ transition: 'color 0.2s ease-in-out' }}
@@ -100,6 +111,14 @@ export default function Header() {
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
               >
                 Minha Conta
+              </button>
+              <button
+                onClick={() => logout()} 
+                style={{ transition: 'color 0.2s ease-in-out' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
+              >
+                Sair
               </button>
             </>
           ) : (
