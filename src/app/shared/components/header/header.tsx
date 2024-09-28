@@ -113,7 +113,7 @@ export default function Header() {
                 Minha Conta
               </button>
               <button
-                onClick={() => logout()} 
+                onClick={logout} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}

@@ -6,6 +6,7 @@ import Dashboard from './app/screens/dashboard/dashboard';
 import Pets from './app/screens/pets/pets';
 import { useContext } from 'react';
 import { AuthContext } from './app/context/auth.context';
+import Campaigns from './app/screens/campaigns/campaigns';
 
 export default function AppRoutes() {
   const location = useLocation();
@@ -19,11 +20,15 @@ export default function AppRoutes() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/campanhas" element={<Campaigns />} />
         <>
         {user ?
         <>
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/pets" element={<Pets />} /></> : null
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/pets" element={<Pets />} />
+      
+
+        </> : null
       }
         </>
       </Routes>
