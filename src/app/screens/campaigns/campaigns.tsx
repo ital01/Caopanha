@@ -67,7 +67,7 @@ export default function Campaigns() {
     },
   ];
   return (
-    <div>
+    <div style={{width: '100%', padding: 20}}>
       <h1>Campanhas</h1>
       <ViewUsers />
 
