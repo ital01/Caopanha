@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = ({
   columns,
-  rows,
+  data,
   rowsPerPage,
   currentPage,
   setCurrentPage,
@@ -10,7 +10,7 @@ const Table = ({
   id,
 }: {
     columns: any[];
-    rows: any[];
+    data: any[];
     rowsPerPage: number;
     currentPage: number;
     setCurrentPage: any;
@@ -40,7 +40,7 @@ const Table = ({
           </tr>
         </thead>
         <tbody>
-          {rows?.map((row, rowIndex) => (
+          {data?.map((row, rowIndex) => (
             <tr key={rowIndex} style={{ backgroundColor: rowIndex % 2 === 0 ? "#fff" : "#E2E8F0" }}>
               {columns.map((col) => (
                 <td key={col.accessor || col.Header} style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>
