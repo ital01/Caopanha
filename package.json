@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "build:deploy": "yarn build && yarn deploy",
+    "build:deploy": "yarn build && yarn deploy"
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
