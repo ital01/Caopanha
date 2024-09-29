@@ -34,6 +34,7 @@ export default function LabeledInput(
         id={`input-${label}`}
         value={value}
         onChange={onChange}
+        autoFocus
         style={{
           fontSize: '1.6rem',
           fontWeight: 'normal',
