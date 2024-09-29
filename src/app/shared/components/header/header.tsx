@@ -105,6 +105,14 @@ export default function Header() {
                 Meus Pets
               </button>
               <button
+                onClick={() => navigate(`/servicos`)} 
+                style={{ transition: 'color 0.2s ease-in-out' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
+              >
+                Serviços
+              </button>
+              <button
                 onClick={() => navigate(`/dashboard`)} 
                 style={{ transition: 'color 0.2s ease-in-out' }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#555'}

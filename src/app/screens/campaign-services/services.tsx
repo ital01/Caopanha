@@ -1,30 +1,26 @@
 import Table from "@components/table/table";
 import { useEffect, useState } from "react";
-import { PetsHook } from "../../hooks";
-import { iFindManyPets } from "../../interfaces/hooks/pet";
+import {  ServicesHook } from "../../hooks";
+import { iFindManyServices } from "../../interfaces/hooks/services";
 import Divider from "@components/divider/divider";
 
-export default function Pets() {
-  const [data, setData] = useState({} as iFindManyPets)
+export default function Services() {
+  const [data, setData] = useState({} as iFindManyServices)
   const [currentPage, setCurrentPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const Specie = {
-    1: 'Cachorro',
-    2:'Gato'
+  const Status = {
+    true: 'Ativo',
+    false:'Inativo'
   }
 
-  const Gender = {
-    1: 'Macho',
-    2:'Fêmea'
-  }
 
   useEffect(() => {
-    getPets()
+    getServices()
   },[])
 
-  const getPets = async () => {
-    const result = await PetsHook.findMany({ 
+  const getServices = async () => {
+    const result = await ServicesHook.findMany({ 
       skip: rowsPerPage * currentPage,
       take: rowsPerPage,
     })
@@ -39,16 +35,16 @@ export default function Pets() {
       Cell: ({ row }: { row: any }) => <p>{row?.name}</p>,
     },
     {
-      Header: "Espécie",
-      accessor: "specie",
+      Header: "Status",
+      accessor: "actived",
             //@ts-ignore
-      Cell: ({ row }: { row: any }) => <p>{Specie[row?.specie]}</p>,
+      Cell: ({ row }: { row: any }) => <p>{Status[row?.actived]}</p>,
     },
     {
-      Header: "Gênero",
-      accessor: "gender",
-      //@ts-ignore
-      Cell: ({ row }: { row: any }) => <p>{Gender[row?.gender]}</p>,
+      Header: "Duração",
+      accessor: "execution_time",
+      Cell: ({ row }: { row: any }) => <p>{row.execution_time} min</p>,
+
     },
     {
       Header: "Ações",
@@ -65,9 +61,8 @@ export default function Pets() {
       width: '100%',
       padding: 20,
     }}>
-      <h1>Pets Cadastrados</h1>
+      <h1>Serviços Cadastrados</h1>
       <Divider size="md" />
-
 
       <Table columns={COLUMNS} data={data.records} rowsPerPage={rowsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalRows={data.total ?? 1} id={""} />
     </div>

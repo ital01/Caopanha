@@ -5,6 +5,7 @@ import Table from "@components/table/table";
 import { iFindManyCampaigns } from "../../interfaces/hooks/campaigns";
 import { CampaignsHook } from "../../hooks";
 import dayjs from "dayjs";
+import Divider from "@components/divider/divider";
 
 export default function Campaigns() {
   const {user} = useContext(AuthContext)
@@ -69,6 +70,8 @@ export default function Campaigns() {
   return (
     <div style={{width: '100%', padding: 20}}>
       <h1>Campanhas</h1>
+      <Divider size="md" />
+
       <ViewUsers />
 
 
