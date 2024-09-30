@@ -8,20 +8,23 @@ import { useContext } from 'react';
 import { AuthContext } from './app/context/auth.context';
 import Campaigns from './app/screens/campaigns/campaigns';
 import Services from './app/screens/campaign-services/services';
+import Register from './app/screens/register/register';
 
 export default function AppRoutes() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== `/login`;
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const showHeader = location.pathname !== '/login';
 
   return (
     <>
-      {showHeaderFooter && <Header />}
+      {showHeader && <Header />}
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/campanhas" element={<Campaigns />} />
+        <Route path='/cadastrar' element={<Register />} />
         <>
           {user ?
             <>
@@ -39,13 +42,16 @@ export default function AppRoutes() {
 
 export  function DashRoutes() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== `/login`;
+  const showHeaderFooter = location.pathname !== '/login';
 
   return (
     <>
       {showHeaderFooter && <Header />}
       <Routes>
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path='/cadastrar' element={<Register />} />
+        <Route path='/campanhas' element={<Campaigns />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </>
   );

@@ -1,4 +1,4 @@
-import environment from "@environment/environment";
+import environment from '@environment/environment';
 
 function getBaseApiUrl(): string {
   return environment.apiUrl;

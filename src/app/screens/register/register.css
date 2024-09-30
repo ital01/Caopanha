@@ -1,0 +1,73 @@
+.register-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.image-container {
+  max-height: 100%;
+  aspect-ratio: 5 / 6;
+}
+
+.campaign-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-content: start;
+}
+
+.campaign-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: start;
+  align-content: start;
+  gap: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.form-content {
+  display: flex;
+  gap: 3rem;
+  flex-direction: row;
+}
+
+.form-column {
+  width: 50%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.submit-button {
+  background-color: #01bbb2;
+  color: #fff;
+  border-radius: 0.8rem;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+}
