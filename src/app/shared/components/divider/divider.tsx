@@ -1,5 +1,5 @@
 export default function Divider({size}: {size: 'xs'| 's'| 'md' | 'lg'}) {
-    let heigth = {
+    const heigth = {
         'xs': 5,
         's':  15,
         'md': 30,

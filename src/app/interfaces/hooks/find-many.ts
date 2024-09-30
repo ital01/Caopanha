@@ -1,4 +1,4 @@
 export default interface iFindMany{
-    skip: number,
-    take: number
+  skip: number,
+  take: number
 }

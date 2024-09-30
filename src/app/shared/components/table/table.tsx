@@ -1,6 +1,22 @@
 import React from "react";
 
-const Table = ({
+interface Column<T> {
+  Header: string;
+  accessor: keyof T;
+  Cell?: (props: { row: T }) => React.ReactNode;
+}
+
+interface TableProps<T> {
+  columns: Column<T>[];
+  data: T[];
+  rowsPerPage: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  totalRows: number;
+  id: string;
+}
+
+const Table = <T,>({
   columns,
   data,
   rowsPerPage,
@@ -8,23 +24,15 @@ const Table = ({
   setCurrentPage,
   totalRows,
   id,
-}: {
-    columns: any[];
-    data: any[];
-    rowsPerPage: number;
-    currentPage: number;
-    setCurrentPage: any;
-    totalRows: number;
-    id: string
-  }) => {
+}: TableProps<T>) => {
   const handleNextPage = () => {
-    setCurrentPage((prevPage: number) =>
+    setCurrentPage((prevPage) =>
       Math.min(prevPage + 1, Math.floor(totalRows / rowsPerPage))
     );
   };
 
   const handlePrevPage = () => {
-    setCurrentPage((prevPage: number) => Math.max(prevPage - 1, 0));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
   };
 
   return (
@@ -33,18 +41,18 @@ const Table = ({
         <thead>
           <tr>
             {columns.map((col) => (
-              <th key={col.accessor || col.Header} style={{ padding: "8px", backgroundColor: "#4A5568", color: "white", textAlign: "left" }}>
+              <th key={String(col.accessor)} style={{ padding: "8px", backgroundColor: "#4A5568", color: "white", textAlign: "left" }}>
                 {col.Header}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data?.map((row, rowIndex) => (
+          {data.map((row, rowIndex) => (
             <tr key={rowIndex} style={{ backgroundColor: rowIndex % 2 === 0 ? "#fff" : "#E2E8F0" }}>
               {columns.map((col) => (
-                <td key={col.accessor || col.Header} style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>
-                  {col.Cell ? col.Cell({ row }) : row[col.accessor]}
+                <td key={String(col.accessor)} style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>
+                  {col.Cell ? col.Cell({ row }) : row[col.accessor] as React.ReactNode}
                 </td>
               ))}
             </tr>

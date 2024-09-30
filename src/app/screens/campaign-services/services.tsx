@@ -1,70 +1,75 @@
 import Table from "@components/table/table";
-import { useEffect, useState } from "react";
-import {  ServicesHook } from "../../hooks";
-import { iFindManyServices } from "../../interfaces/hooks/services";
+import { useCallback, useEffect, useState } from "react";
+import { PetsHook } from "../../hooks";
+import { iFindManyPets, iPet } from "../../interfaces/hooks/pet";
 import Divider from "@components/divider/divider";
 
-export default function Services() {
-  const [data, setData] = useState({} as iFindManyServices)
+interface Column<T> {
+  Header: string;
+  accessor: keyof T;
+  Cell?: (props: { row: T }) => JSX.Element;
+}
+
+export default function Pets() {
+  const [data, setData] = useState<iFindManyPets>({ total: 0, records: [] });
   const [currentPage, setCurrentPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const Status = {
-    true: 'Ativo',
-    false:'Inativo'
-  }
+  const Specie: Record<number, string> = {
+    1: 'Cachorro',
+    2: 'Gato',
+  };
 
+  const Gender: Record<number, string> = {
+    1: 'Macho',
+    2: 'Fêmea',
+  };
 
-  useEffect(() => {
-    getServices()
-  },[])
-
-  const getServices = async () => {
-    const result = await ServicesHook.findMany({ 
+  const getPets = useCallback(async () => {
+    const result = await PetsHook.findMany({
       skip: rowsPerPage * currentPage,
       take: rowsPerPage,
-    })
-
-    if(result) setData(result)
-  }
-
-  const COLUMNS = [
+    });
+  
+    if (result) setData(result);
+  }, [rowsPerPage, currentPage]);
+  
+  useEffect(() => {
+    getPets();
+    setRowsPerPage(5);
+  }, [getPets]);
+  
+  const COLUMNS: Column<iPet>[] = [
     {
       Header: "Nome",
       accessor: "name",
-      Cell: ({ row }: { row: any }) => <p>{row?.name}</p>,
+      Cell: ({ row }: { row: iPet }) => <p>{row.name}</p>,
     },
     {
-      Header: "Status",
-      accessor: "actived",
-            //@ts-ignore
-      Cell: ({ row }: { row: any }) => <p>{Status[row?.actived]}</p>,
+      Header: "Espécie",
+      accessor: "specie",
+      Cell: ({ row }: { row: iPet }) => <p>{Specie[row.specie]}</p>,
     },
     {
-      Header: "Duração",
-      accessor: "execution_time",
-      Cell: ({ row }: { row: any }) => <p>{row.execution_time} min</p>,
-
-    },
-    {
-      Header: "Ações",
-      Cell: ({ row }: { row: any }) => (
-        <button onClick={() => console.log(row?.name)}>
-          Ver
-        </button>
-      ),
+      Header: "Gênero",
+      accessor: "gender",
+      Cell: ({ row }: { row: iPet }) => <p>{Gender[row.gender]}</p>,
     },
   ];
 
   return (
-    <div style={{
-      width: '100%',
-      padding: 20,
-    }}>
-      <h1>Serviços Cadastrados</h1>
+    <div style={{ width: '100%', padding: 20 }}>
+      <h1>Pets Cadastrados</h1>
       <Divider size="md" />
-
-      <Table columns={COLUMNS} data={data.records} rowsPerPage={rowsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalRows={data.total ?? 1} id={""} />
+      <Table 
+        columns={COLUMNS}
+        data={data.records} 
+        rowsPerPage={rowsPerPage} 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage} 
+        totalRows={data.total} 
+        id="" 
+      />
     </div>
   );
-};
+}
