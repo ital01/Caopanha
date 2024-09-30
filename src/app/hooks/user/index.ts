@@ -1,5 +1,5 @@
-import { AxiosResponse } from "axios";
-import api from "../../services/api";
+import { AxiosResponse } from 'axios';
+import api from '../../services/api';
 
 export const passwordRecovery = async (
   data: { email: string }
@@ -14,9 +14,9 @@ export const passwordRecovery = async (
 };
 
 export const passwordRecoveryValidationCode = async (
-  data: { 
-    code: string, 
-    email: string 
+  data: {
+    code: string,
+    email: string
   }
 ) => {
   try {

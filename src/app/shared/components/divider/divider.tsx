@@ -1,7 +1,7 @@
-export default function Divider({size}: {size: 'xs'| 's'| 'md' | 'lg'}) {
+export default function Divider({ size }: {size: 'xs'| 's'| 'md' | 'lg'}) {
   const heigth = {
     'xs': 5,
-    's':  15,
+    's': 15,
     'md': 30,
     'lg': 60
   };
@@ -11,7 +11,6 @@ export default function Divider({size}: {size: 'xs'| 's'| 'md' | 'lg'}) {
       width: '100%',
       height: heigth[size],
     }}/>
-      
+
   );
 };
-  

@@ -2,7 +2,7 @@ export interface iFindManyServices {
   total: number
   records: iService[]
 }
-  
+
 export interface iService {
   id: number
   name: string

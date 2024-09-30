@@ -5,7 +5,7 @@ import SlideUpImage from '@components/slide-up-image/slide-up-image';
 import WaveLetter from '@components/wave-letter/wave-letter';
 
 export default function Home() {
-  
+
   const [animateWave, setAnimateWave] = useState(false);
   useEffect(() => setAnimateWave(true), []);
 

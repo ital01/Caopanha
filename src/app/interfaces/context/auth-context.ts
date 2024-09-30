@@ -1,5 +1,5 @@
-import { iSignIn } from "../hooks/auth";
-import { iUserProps } from "../hooks/user";
+import { iSignIn } from '../hooks/auth';
+import { iUserProps } from '../hooks/user';
 
 export interface iAuthContextProps {
   user: iUserProps | null;

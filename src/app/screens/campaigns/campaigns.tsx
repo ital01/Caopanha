@@ -61,7 +61,6 @@ export default function Campaigns() {
     <div style={{ width: '100%', padding: 20 }}>
       <h1>Campanhas</h1>
       <Divider size="md" />
-      <ViewUsers />
 
       {user ? (
         <Table

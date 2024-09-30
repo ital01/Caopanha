@@ -42,11 +42,11 @@ export default function AppRoutes() {
 
 export  function DashRoutes() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== '/login';
+  const showHeader = location.pathname !== '/login';
 
   return (
     <>
-      {showHeaderFooter && <Header />}
+      {showHeader && <Header />}
       <Routes>
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path='/cadastrar' element={<Register />} />

@@ -2,7 +2,7 @@ export interface iFindManyPets {
   total: number
   records: iPet[]
 }
-  
+
 export interface iPet {
   id: number
   gender: number
@@ -11,7 +11,7 @@ export interface iPet {
   weight: number
   responsible_for_pet: iResponsibleForPet[]
 }
-  
+
 export interface iResponsibleForPet {
   id: number
   name: string
@@ -21,4 +21,3 @@ export interface iResponsibleForPet {
   updated_at: string
   address_id: number
 }
-  
