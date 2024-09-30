@@ -1,4 +1,4 @@
-export default interface iFindMany{
+export interface iFindMany{
   skip: number,
   take: number
 }

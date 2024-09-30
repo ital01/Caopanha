@@ -1,20 +1,20 @@
-import { AxiosResponse } from "axios"
-import iFindMany from "../../interfaces/hooks/find-many"
-import api from "../../services/api"
-import { iFindManyCampaigns } from "../../interfaces/hooks/campaigns"
+import { AxiosResponse } from "axios";
+import { iFindMany } from "../../interfaces/hooks/find-many";
+import api from "../../services/api";
+import { iFindManyCampaigns } from "../../interfaces/hooks/campaigns";
 
 export const findMany = async({skip, take}:iFindMany) =>{
-try{
+  try{
     const{data} = await api.get('/campaigns', {
-        params: {
-            skip: skip,
-            take: take,
-        }
-    }) as AxiosResponse<iFindManyCampaigns>
+      params: {
+        skip: skip,
+        take: take,
+      }
+    }) as AxiosResponse<iFindManyCampaigns>;
 
-    return data
+    return data;
 
-}catch(error){
-    console.log(error)
-}
-}
+  }catch(error){
+    console.log(error);
+  }
+};

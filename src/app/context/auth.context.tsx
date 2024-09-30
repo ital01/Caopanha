@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { iAuthContextProps } from "../interfaces/context/auth-context";
-import iSignIn from "../interfaces/hooks/auth";
+import { iSignIn } from "../interfaces/hooks/auth";
 import { iUserProps } from "../interfaces/hooks/user";
 import Cookies from 'js-cookie';
 import api from "../services/api";

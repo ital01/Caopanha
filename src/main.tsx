@@ -8,8 +8,8 @@ import { AuthProvider } from './app/context/auth.context';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-    <AuthProvider> 
-      <AppRoutes />
+      <AuthProvider> 
+        <AppRoutes />
       </AuthProvider> 
     </BrowserRouter>
   </StrictMode>,

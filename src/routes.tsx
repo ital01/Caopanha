@@ -12,25 +12,25 @@ import Services from './app/screens/campaign-services/services';
 export default function AppRoutes() {
   const location = useLocation();
   const showHeaderFooter = location.pathname !== `/login`;
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
 
   return (
     <>
-          {showHeaderFooter && <Header />}
+      {showHeaderFooter && <Header />}
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/campanhas" element={<Campaigns />} />
         <>
-        {user ?
-        <>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/pets" element={<Pets />} />
-        <Route path="/servicos" element={<Services />} />
+          {user ?
+            <>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/pets" element={<Pets />} />
+              <Route path="/servicos" element={<Services />} />
 
-        </> : null
-      }
+            </> : null
+          }
         </>
       </Routes>
     </>

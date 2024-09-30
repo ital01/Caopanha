@@ -6,16 +6,16 @@ import { AuthContext } from "../../../context/auth.context";
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
-  const {user, logout} = useContext(AuthContext)
-  const [isLogged, setIsLogged] = useState(false)
+  const {user, logout} = useContext(AuthContext);
+  const [isLogged, setIsLogged] = useState(false);
 
   const isHome = location.pathname === '/home';
 
-  console.log(user)
+  console.log(user);
  
- useEffect(() => {
-  if(user) setIsLogged(true)
- },[user])
+  useEffect(() => {
+    if(user) setIsLogged(true);
+  },[user]);
 
   return (
     <header
@@ -69,10 +69,10 @@ export default function Header() {
       >
         {!user &&
         <button
-        onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
-        style={{ transition: 'color 0.2s ease-in-out' }}
-        onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
-        onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
+          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
+          style={{ transition: 'color 0.2s ease-in-out' }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#555'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
         >
           Como Funciona ?
         </button>
