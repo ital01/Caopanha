@@ -7,11 +7,9 @@ export default function MainContainer(
     <main
       style={{
         width: '100%',
-        height: '90vh',
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        padding: '30px',
         gap: '48px'
       }}
     >
