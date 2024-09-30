@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import LabeledInput from '@components/labeled-input/labeled-input';
-import MainContainer from '@components/main-container/main-container';
 import { AuthContext } from '../../context/auth.context';
 import Modal from '@components/modal/modal';
 import { UsersHook } from '../../hooks';
@@ -120,36 +119,34 @@ export default function Login() {
   );
 
   return (
-    <MainContainer>
+    <section className="container">
       <h1 className="title">Bem Vindo de Volta</h1>
-      <section className="container">
-        <img src="/images/image.webp" alt="Pets" className="image" />
-        <div className="formContainer">
-          <form onSubmit={handleSubmit} className="form">
-            <LabeledInput
-              type="text"
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <LabeledInput
-              type="password"
-              label="Senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button className="button">Esqueci minha senha</button>
-            <button type="submit" className="submitButton">Entrar</button>
-          </form>
-          <div className="participateContainer">
-            <h2 className="participateTitle">Ainda não participa?</h2>
-            <button className="participateButton">Quero Participar</button>
-          </div>
+      <img src="/images/image.webp" alt="Pets" className="image" />
+      <div className="formContainer">
+        <form onSubmit={handleSubmit} className="form">
+          <LabeledInput
+            type="text"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <LabeledInput
+            type="password"
+            label="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="button">Esqueci minha senha</button>
+          <button type="submit" className="submitButton">Entrar</button>
+        </form>
+        <div className="participateContainer">
+          <h2 className="participateTitle">Ainda não participa?</h2>
+          <button className="participateButton">Quero Participar</button>
         </div>
-      </section>
+      </div>
       <Modal isOpen={isPasswordRecoveryModalOpen} onClose={onClosePasswordRecoveryModal}>
         <PasswordRecoveryModalContent />
       </Modal>
-    </MainContainer>
+    </section>
   );
 }
