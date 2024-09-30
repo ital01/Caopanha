@@ -26,7 +26,7 @@ export default function Home() {
         <SlideUpImage
           src={'/images/pets.webp'}
           alt="Imagem de Animais"
-          width="55vw"
+          width="55%"
         />
       </section>
 
