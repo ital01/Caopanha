@@ -10,7 +10,7 @@ export default function MainContainer({ children, style }: MainContainerProps) {
     <main
       style={{
         width: '100%',
-        maxWidth: '1200px',
+        maxWidth: '1366px',
         margin: '0 auto',
         overflow: 'auto',
         display: 'flex',

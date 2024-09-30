@@ -6,6 +6,7 @@ import { CampaignsHook } from '../../hooks';
 import dayjs from 'dayjs';
 import Divider from '@components/divider/divider';
 import MainContainer from '@components/main-container/main-container';
+import CampaignComponent from '@components/campaign/campaign';
 
 export default function Campaigns() {
   const { user } = useContext(AuthContext);
@@ -59,23 +60,32 @@ export default function Campaigns() {
   ];
 
   return (
-    <MainContainer
-      style={{
-        padding: '30px'
-      }}
-    >
+    <MainContainer style={{ gap: '0' }}>
       <div style={{ textAlign: 'center' }}>
-        <h1>
-          Confira as Campanhas Ativas
-        </h1>
-        <h2>
-          E não perca a oportunidade de cuidar de quem mais precisa de voce
-        </h2>
+        <h1>Confira as Campanhas Ativas</h1>
+        <h2>E não perca a oportunidade de cuidar de quem mais precisa de você</h2>
       </div>
-      <section>
-
-      </section>
-
+      <CampaignComponent
+        title="Campanha de Vacinação de cães e gatos"
+        subtitle="Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        requiredDocuments={['RG', 'CPF', 'Comprovante de Residência']}
+        imageUrl="https://placehold.co/900x900"
+      />
+      <CampaignComponent
+        title="Campanha de Vacinação de cães e gatos"
+        subtitle="Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        requiredDocuments={['RG', 'CPF', 'Comprovante de Residência']}
+        imageUrl="https://placehold.co/900x900"
+      />
+      <CampaignComponent
+        title="Campanha de Vacinação de cães e gatos"
+        subtitle="Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        requiredDocuments={['RG', 'CPF', 'Comprovante de Residência']}
+        imageUrl="https://placehold.co/900x900"
+      />
     </MainContainer>
   );
 }

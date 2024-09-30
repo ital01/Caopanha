@@ -11,6 +11,7 @@ interface LabeledInputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
+  required?: boolean;
 }
 
 export default function LabeledInput({
@@ -21,6 +22,7 @@ export default function LabeledInput({
   onChange,
   onBlur,
   error,
+  required,
 }: LabeledInputProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
@@ -46,6 +48,7 @@ export default function LabeledInput({
               {...inputProps}
               type={type}
               id={`input-${label}`}
+              required={required}
               style={{
                 fontSize: '1.6rem',
                 fontWeight: 'normal',
