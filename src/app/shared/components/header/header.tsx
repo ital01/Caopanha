@@ -30,6 +30,7 @@ export default function Header() {
 
       <nav className="header-nav">
         <button
+          className="nav-button"
           onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
         >
           Como Funciona?

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { iSignIn } from '../hooks/auth';
 import { iUserProps } from '../hooks/user';
 

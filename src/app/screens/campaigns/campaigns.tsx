@@ -5,6 +5,7 @@ import { iFindManyCampaigns, iCampaign } from '../../interfaces/hooks/campaigns'
 import { CampaignsHook } from '../../hooks';
 import dayjs from 'dayjs';
 import Divider from '@components/divider/divider';
+import MainContainer from '@components/main-container/main-container';
 
 export default function Campaigns() {
   const { user } = useContext(AuthContext);
@@ -58,23 +59,23 @@ export default function Campaigns() {
   ];
 
   return (
-    <div style={{ width: '100%', padding: 20 }}>
-      <h1>Campanhas</h1>
-      <Divider size="md" />
+    <MainContainer
+      style={{
+        padding: '30px'
+      }}
+    >
+      <div style={{ textAlign: 'center' }}>
+        <h1>
+          Confira as Campanhas Ativas
+        </h1>
+        <h2>
+          E não perca a oportunidade de cuidar de quem mais precisa de voce
+        </h2>
+      </div>
+      <section>
 
-      {user ? (
-        <Table
-          columns={COLUMNS}
-          data={data.records}
-          rowsPerPage={rowsPerPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalRows={data.total}
-          id=""
-        />
-      ) : (
-        <p>Visão do usuário externo</p>
-      )}
-    </div>
+      </section>
+
+    </MainContainer>
   );
 }

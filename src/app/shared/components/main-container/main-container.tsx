@@ -1,8 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
-export default function MainContainer(
-  { children }: { children: ReactNode }
-) {
+interface MainContainerProps {
+  children: ReactNode;
+  style?: CSSProperties;
+}
+
+export default function MainContainer({ children, style }: MainContainerProps) {
   return (
     <main
       style={{
@@ -12,7 +15,8 @@ export default function MainContainer(
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        gap: '48px'
+        gap: '48px',
+        ...style
       }}
     >
       {children}
