@@ -1,4 +1,4 @@
-interface CampaignProps {
+export interface CampaignProps {
   title: string;
   subtitle: string;
   description: string;
@@ -79,9 +79,10 @@ export default function CampaignComponent({
     },
     actionContainer: {
       width: '50%',
+      height: '100%',
       display: 'flex',
       flexDirection: 'column' as const,
-      justifyContent: 'flex-end',
+      justifyContent: 'space-between',
       alignItems: 'flex-end',
       gap: '10px',
     },
