@@ -120,7 +120,14 @@ export default function Login() {
   );
 
   return (
-    <MainContainer>
+    <MainContainer
+      style={{
+        height: '100vh',
+        margin: 'auto',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <h1 className="title">Bem Vindo de Volta</h1>
       <section className="container">
         <img src="/images/image.webp" alt="Pets" className="image" />
