@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Table from '@components/table/table';
 import { useCallback, useEffect, useState } from 'react';
 import { PetsHook } from '../../hooks';
