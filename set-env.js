@@ -14,7 +14,9 @@ const envConfigFile = (
   apiUrl: '${apiUrl}',
 };
 
-export default environment;`
+export default environment;
+`
+
 );
 
 fs.writeFile(targetPath, envConfigFile, function (err) {
