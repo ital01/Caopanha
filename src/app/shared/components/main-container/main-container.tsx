@@ -11,7 +11,7 @@ export default function MainContainer({ children, style }: MainContainerProps) {
       style={{
         width: '100%',
         maxWidth: '1366px',
-        margin: '0 auto',
+        margin: '1rem auto',
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',

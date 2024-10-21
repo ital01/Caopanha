@@ -40,12 +40,6 @@ export default function Header() {
         </button>
         {isLogged ? (
           <>
-            <button onClick={() => navigate('/agendamentos')} className="nav-button">
-              Agendamentos
-            </button>
-            <button onClick={() => navigate('/pets')} className="nav-button">
-              Meus Pets
-            </button>
             <button onClick={() => navigate('/dashboard')} className="nav-button">
               Minha Conta
             </button>
