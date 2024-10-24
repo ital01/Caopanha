@@ -6,6 +6,7 @@ import { UsersHook } from '../../hooks';
 import api from '../../services/api';
 import './login.css';
 import MainContainer from '@components/main-container/main-container';
+import { toast } from 'react-toastify';
 
 export default function Login() {
   const { signIn } = useContext(AuthContext);
@@ -20,10 +21,14 @@ export default function Login() {
   const [passwordRecoveryStep, setPasswordRecoveryStep] = useState(0);
   const [isPasswordRecoveryModalOpen, setIsPasswordRecoveryModalOpen] = useState(false);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await signIn({ email, password, setError });
-    console.log(error);
+  const handleSubmit = async () => {
+    const response = await signIn({ email, password, setError });
+    console.error(error);
+    if (response?.length) {
+      toast.success('Login realizado com sucesso');
+    } else {
+      toast.error('Falha ao realizar login');
+    }
   };
 
   const handlePasswordRecovery = async () => {
@@ -132,7 +137,7 @@ export default function Login() {
       <section className="container">
         <img src="/images/image.webp" alt="Pets" className="image" />
         <div className="formContainer">
-          <form onSubmit={handleSubmit} className="form">
+          <div className="form">
             <LabeledInput
               type="text"
               label="Email"
@@ -145,13 +150,24 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="button">Esqueci minha senha</button>
-            <button type="submit" className="submitButton">Entrar</button>
-          </form>
+            <button
+              onClick={
+                () => {
+                  setIsPasswordRecoveryModalOpen(true);
+                }
+              }
+              className="button"
+            >
+              Esqueci minha senha
+            </button>
+            <button onClick={handleSubmit} className="submitButton">Entrar</button>
+          </div>
+          {/*
           <div className="participateContainer">
             <h2 className="participateTitle">Ainda não participa?</h2>
             <button className="participateButton">Quero Participar</button>
           </div>
+          */}
         </div>
         <Modal isOpen={isPasswordRecoveryModalOpen} onClose={onClosePasswordRecoveryModal}>
           <PasswordRecoveryModalContent />

@@ -9,6 +9,8 @@ import { AuthContext } from './app/context/auth.context';
 import Campaigns from './app/screens/campaigns/campaigns';
 import Services from './app/screens/campaign-services/services';
 import Register from './app/screens/register/register';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AppRoutes() {
   const location = useLocation();
@@ -36,6 +38,7 @@ export default function AppRoutes() {
           }
         </>
       </Routes>
+      <ToastContainer />
     </>
   );
 }
