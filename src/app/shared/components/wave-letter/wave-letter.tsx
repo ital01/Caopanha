@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export default function WaveLetter({
   letter,
@@ -7,7 +7,7 @@ export default function WaveLetter({
   animateWave
 }: {
   letter: ReactNode,
-  color: string, 
+  color: string,
   delay: number,
   animateWave: boolean
 }) {
