@@ -1,18 +1,6 @@
-export interface CampaignProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  requiredDocuments: string[];
-  imageUrl: string;
-}
+import { iCampaign } from '../../../interfaces/hooks/campaigns';
 
-export default function CampaignComponent({
-  title,
-  subtitle,
-  description,
-  requiredDocuments,
-  imageUrl,
-}: CampaignProps) {
+export default function CampaignComponent(props: iCampaign) {
   const styles = {
     mainContainer: {
       padding: '30px',
@@ -103,27 +91,32 @@ export default function CampaignComponent({
       <div style={styles.campaigns}>
         <div style={styles.imageContainer}>
           <img
-            src={imageUrl}
+            src={'https://placehold.co/600x400/EEE/31343C'}
             alt="Imagem da campanha"
             style={styles.campaignImage}
           />
         </div>
         <div style={styles.descriptionContainer}>
           <div style={styles.topContainer}>
-            <h1 style={styles.topH1}>{title}</h1>
-            <h2 style={styles.topH2}>{subtitle}</h2>
-            <p style={styles.topP}>{description}</p>
+            <h1 style={styles.topH1}>{props.name}</h1>
+            <h2 style={styles.topH2}>{props.description}</h2>
+            {props.campaign_place?.map((place, index) => (
+              <p key={index} style={styles.topP}>
+                {place.address.street}, {place.address.number}, {place.address.neighborhood}, {place.address.city} - {place.address.state}, {place.address.zip_code}
+                {place.address.complement ? `, ${place.address.complement}` : ''}
+              </p>
+            ))}
           </div>
           <div style={styles.bottomContainer}>
             <div style={styles.documentContainer}>
               <p>Documentos Necessários:</p>
               <ul>
-                {requiredDocuments.map((doc, index) => (
-                  <li key={index}>{doc}</li>
-                ))}
+                <li>Documentos Pessoais: CPF ou RG</li>
+                <li>Comprovante de residência</li>
+                <li>Documentos do seu pet</li>
               </ul>
             </div>
-            <div style={styles.actionContainer}>
+            <div style={styles.actionContainer}>''
               <p>Clique aqui para se cadastrar nessa campanha</p>
               <button
                 style={styles.button}
@@ -150,4 +143,4 @@ export default function CampaignComponent({
       </div>
     </div>
   );
-};
+}
