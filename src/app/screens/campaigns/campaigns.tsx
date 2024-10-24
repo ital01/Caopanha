@@ -15,7 +15,7 @@ export default function Campaigns() {
         take: 1
       };
       const data: iFindManyCampaigns = (await findMany(config))!;
-      const campaigns = data.records;
+      const campaigns: iCampaign[] = data.records;
       setCampaigns(campaigns);
     })();
   }, []);
