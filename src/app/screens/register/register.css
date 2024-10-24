@@ -3,19 +3,23 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  gap: 30px;
   padding: 30px;
 }
 
 .image-container {
   max-height: 100%;
   aspect-ratio: 5 / 6;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .campaign-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .form-container {
@@ -25,6 +29,11 @@
   height: 100%;
   justify-content: space-between;
   align-content: start;
+  background-color: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
 
 .campaign-details {
@@ -91,50 +100,26 @@ button:active {
   flex: 1;
 }
 
-.submit-button-container {
-  display: flex;
-  justify-content: end;
-}
-
-.submit-button {
-  background-color: #01bbb2;
-  color: #fff;
-  border-radius: 0.8rem;
-  padding: 1rem 2rem;
-  font-size: 2.4rem;
-  letter-spacing: 0.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  transform: scale(1);
-}
-
-button:hover {
-  transform: scale(1.1);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-.error {
-  color: red;
-  font-size: 1.2rem;
-}
-
 .radio-group {
   display: flex;
-  gap: 1.5rem;
 }
 
 .radio-group label {
+  width: 15%;
+  height: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
   border: 2px solid transparent;
   border-radius: 8px;
   transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:not(:checked) + label {
+  border-color: #cccccc;
+  background-color: rgba(204, 204, 204, 0.2);
 }
 
 .radio-group input[type="radio"] {

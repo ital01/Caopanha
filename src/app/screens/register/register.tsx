@@ -9,9 +9,9 @@ const SELECTED_CAMPAIGN_KEY = 'selectedCampaign';
 
 interface FormData {
   pet_name: string;
-  specie: number; // 0 for Dog, 1 for Cat
+  specie: number;
   weight: string;
-  gender: number; // 0 for Male, 1 for Female
+  gender: number;
   date: string;
   campaign_id: number;
   responsible_name: string;
@@ -32,9 +32,9 @@ interface FormData {
 export default function Register() {
   const [formData, setFormData] = useState<FormData>({
     pet_name: '',
-    specie: 0, // Default to Dog
+    specie: 0,
     weight: '',
-    gender: 0, // Default to Male
+    gender: 0,
     date: '',
     campaign_id: 0,
     responsible_name: '',
