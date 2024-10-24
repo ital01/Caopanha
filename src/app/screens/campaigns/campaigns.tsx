@@ -1,38 +1,24 @@
 import MainContainer from '@components/main-container/main-container';
-import CampaignComponent, { CampaignProps } from '@components/campaign/campaign';
+import CampaignComponent from '@components/campaign/campaign';
+import { useEffect, useState } from 'react';
+import { findMany } from '../../hooks/campaigns';
+import { iCampaign, iFindManyCampaigns } from '../../interfaces/hooks/campaigns';
+import { iFindMany } from '../../interfaces/hooks/find-many';
 
 export default function Campaigns() {
+  const [campaigns, setCampaigns] = useState<iCampaign[]>([]);
 
-  const campaigns: CampaignProps[] = [
-    {
-      title: 'Campanha de Vacinação de cães e gatos',
-      subtitle: 'Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      requiredDocuments: ['RG', 'CPF', 'Comprovante de Residência'],
-      imageUrl: 'https://placehold.co/900x900',
-    },
-    {
-      title: 'Campanha de Vacinação de cães e gatos',
-      subtitle: 'Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      requiredDocuments: ['RG', 'CPF', 'Comprovante de Residência'],
-      imageUrl: 'https://placehold.co/900x900',
-    },
-    {
-      title: 'Campanha de Vacinação de cães e gatos',
-      subtitle: 'Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      requiredDocuments: ['RG', 'CPF', 'Comprovante de Residência'],
-      imageUrl: 'https://placehold.co/900x900',
-    },
-    {
-      title: 'Campanha de Vacinação de cães e gatos',
-      subtitle: 'Rua Lorem Ipsum - 999, Jardim Exemplo II, Americana-SP',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      requiredDocuments: ['RG', 'CPF', 'Comprovante de Residência'],
-      imageUrl: 'https://placehold.co/900x900',
-    },
-  ];
+  useEffect(() => {
+    (async () => {
+      const config: iFindMany = {
+        skip: 1,
+        take: 1
+      };
+      const data: iFindManyCampaigns = (await findMany(config))!;
+      const campaigns = data.records;
+      setCampaigns(campaigns);
+    })();
+  }, []);
 
   return (
     <MainContainer style={{ gap: '0' }}>
