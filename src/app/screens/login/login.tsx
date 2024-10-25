@@ -24,7 +24,7 @@ export default function Login() {
   const handleSubmit = async () => {
     const response = await signIn({ email, password, setError });
     console.error(error);
-    if (response?.length) {
+    if (response !== undefined && response !== null) {
       toast.success('Login realizado com sucesso');
     } else {
       toast.error('Falha ao realizar login');

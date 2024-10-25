@@ -27,6 +27,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/campanhas" element={<Campaigns />} />
         <Route path='/cadastrar' element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <>
           {user ?
             <>

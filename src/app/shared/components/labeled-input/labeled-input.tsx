@@ -6,8 +6,9 @@ import InputMask from 'react-input-mask';
 interface LabeledInputProps {
   label: string;
   type: string;
-  value?: string;
+  value?: string | number;
   mask?: string;
+  placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
@@ -19,6 +20,7 @@ export default function LabeledInput({
   type,
   value,
   mask,
+  placeholder,
   onChange,
   onBlur,
   error,
@@ -49,6 +51,7 @@ export default function LabeledInput({
               type={type}
               id={`input-${label}`}
               required={required}
+              placeholder={placeholder}
               style={{
                 fontSize: '1.6rem',
                 fontWeight: 'normal',
