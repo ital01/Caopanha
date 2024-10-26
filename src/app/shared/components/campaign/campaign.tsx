@@ -149,6 +149,6 @@ const styles = {
     border: '2px solid var(--primary-color)',
     borderRadius: '5px',
     cursor: 'pointer',
-    transition: 'all 0.3s ease',
+    transition: 'all 0.2s ease',
   },
 };
