@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LabeledInput from '@components/labeled-input/labeled-input';
 
 interface CampaignFormData {
@@ -18,9 +18,8 @@ interface CampaignFormData {
 export default function CampaignForm() {
   const [isAddDateButtonHovered, setIsAddDateButtonHovered] = useState(false);
   const [isSubmitButtonHovered, setIsSubmitButtonHovered] = useState(false);
-  const [hasImage, setHasImage] = useState(false);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
-
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [formData, setFormData] = useState<CampaignFormData>({
     logo: null,
     name: '',
@@ -29,10 +28,14 @@ export default function CampaignForm() {
     service_id: '',
     dates: [{ date: '', from: '', to: '' }]
   });
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setHasImage(!!formData.logo);
-  }, [formData.logo]);
+    if (imageContainerRef.current) {
+      const { offsetWidth, offsetHeight } = imageContainerRef.current;
+      setDimensions({ width: offsetWidth, height: offsetHeight });
+    }
+  }, []);
 
   const handleChange = (field: string, value: any) => {
     if (field === 'logo' && value) {
@@ -42,6 +45,14 @@ export default function CampaignForm() {
       ...prev,
       [field]: value,
     }));
+  };
+
+  const getImageUrl = (): string => {
+    if (imagePreviewUrl === '') {
+      return `https://placehold.co/${dimensions.width}x${dimensions.height}`;
+    } else {
+      return imagePreviewUrl;
+    }
   };
 
   const handleDateChange = (index: number, field: string, value: string) => {
@@ -74,7 +85,6 @@ export default function CampaignForm() {
       logo: null
     }));
     setImagePreviewUrl('');
-    setHasImage(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -92,7 +102,7 @@ export default function CampaignForm() {
 
   const styles = {
     container: {
-      width: '80%',
+      width: '100%',
       display: 'flex',
       flexDirection: 'row' as const,
       justifyContent: 'center',
@@ -101,7 +111,7 @@ export default function CampaignForm() {
       margin: 'auto',
     },
     imageContainer: {
-      width: hasImage ? '50%' : '0',
+      width: '50%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -110,6 +120,11 @@ export default function CampaignForm() {
       overflow: 'hidden',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
       position: 'relative' as const,
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover' as const,
     },
     removeImageButton: {
       position: 'absolute' as const,
@@ -122,13 +137,8 @@ export default function CampaignForm() {
       cursor: 'pointer',
       transition: 'background-color 0.2s ease, transform 0.2s ease',
     },
-    image: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover' as const,
-    },
     form: {
-      width: hasImage ? '50%' : '100%',
+      width: '50%',
       display: 'flex',
       flexDirection: 'column' as const,
       padding: '1rem 3rem',
@@ -147,7 +157,6 @@ export default function CampaignForm() {
       display: 'flex',
       flexDirection: 'row' as const,
       gap: '15px',
-      marginBottom: '15px',
     },
     inputField: {
       flex: 1,
@@ -200,14 +209,12 @@ export default function CampaignForm() {
 
   return (
     <div style={styles.container}>
-      { hasImage ? (
-        <div style={styles.imageContainer}>
-          <img style={styles.image} src={imagePreviewUrl} alt="Campaign Logo" />
-          <button style={styles.removeImageButton} onClick={handleRemoveImage}>
-            Excluir
-          </button>
-        </div>
-      ) : null }
+      <div style={styles.imageContainer} ref={imageContainerRef}>
+        <img style={styles.image} src={getImageUrl()} alt="Campaign Logo" />
+        <button style={styles.removeImageButton} onClick={handleRemoveImage}>
+          Excluir
+        </button>
+      </div>
       <div style={styles.form}>
         <h2 style={styles.title}>Cadastrar Nova Campanha</h2>
         <div style={styles.inputRow}>
