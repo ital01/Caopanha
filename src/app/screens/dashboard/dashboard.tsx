@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import LabeledInput from '@components/labeled-input/labeled-input';
 
 interface CampaignFormData {
-  logo: File | null;
+  logo: File;
   name: string;
   description: string;
   places_id: string;
@@ -21,7 +21,7 @@ export default function CampaignForm() {
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [formData, setFormData] = useState<CampaignFormData>({
-    logo: null,
+    logo: {} as File,
     name: '',
     description: '',
     places_id: '',
@@ -31,11 +31,33 @@ export default function CampaignForm() {
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (imageContainerRef.current) {
-      const { offsetWidth, offsetHeight } = imageContainerRef.current;
-      setDimensions({ width: offsetWidth, height: offsetHeight });
-    }
+    const updateDimensions = () => {
+      if (imageContainerRef.current) {
+        const { offsetWidth, offsetHeight } = imageContainerRef.current;
+        setDimensions({ width: offsetWidth, height: offsetHeight });
+      }
+    };
+
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
   }, []);
+
+  const getImageUrl = useCallback((): string => {
+    if (imagePreviewUrl === '') {
+      return `https://placehold.co/${dimensions.width}x${dimensions.height}`;
+    } else {
+      return imagePreviewUrl;
+    }
+  }, [imagePreviewUrl, dimensions]);
+
+  useEffect(() => {
+    getImageUrl();
+  }, [dimensions, getImageUrl]);
 
   const handleChange = (field: string, value: any) => {
     if (field === 'logo' && value) {
@@ -45,14 +67,6 @@ export default function CampaignForm() {
       ...prev,
       [field]: value,
     }));
-  };
-
-  const getImageUrl = (): string => {
-    if (imagePreviewUrl === '') {
-      return `https://placehold.co/${dimensions.width}x${dimensions.height}`;
-    } else {
-      return imagePreviewUrl;
-    }
   };
 
   const handleDateChange = (index: number, field: string, value: string) => {
@@ -82,7 +96,7 @@ export default function CampaignForm() {
   const handleRemoveImage = () => {
     setFormData(prev => ({
       ...prev,
-      logo: null
+      logo: {} as File
     }));
     setImagePreviewUrl('');
   };
