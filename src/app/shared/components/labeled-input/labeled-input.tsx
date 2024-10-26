@@ -2,6 +2,7 @@
 import React from 'react';
 import { JSX } from 'react/jsx-runtime';
 import InputMask from 'react-input-mask';
+import { format, isValid } from 'date-fns';
 
 interface LabeledInputProps {
   label: string;
@@ -28,6 +29,18 @@ export default function LabeledInput({
 }: LabeledInputProps) {
   const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
+  const formatValue = (value: string) => {
+    if (!value) return '';
+    if (type === 'date') {
+      const date = new Date(value);
+      return isValid(date) ? format(date, 'dd/MM/yyyy') : '';
+    } else if (type === 'time') {
+      const time = new Date(`1970-01-01T${value}`);
+      return isValid(time) ? format(time, 'HH:mm') : '';
+    }
+    return value;
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
       <label
@@ -43,14 +56,12 @@ export default function LabeledInput({
 
       {type === 'file' ? (
         <div
-          style={
-            {
-              position: 'relative',
-              width: '100%',
-              transition: 'transform 0.2s ease',
-              transform: isButtonHovered ? 'scale(1.05)' : 'scale(1)',
-            }
-          }
+          style={{
+            position: 'relative',
+            width: '100%',
+            transition: 'transform 0.2s ease',
+            transform: isButtonHovered ? 'scale(1.05)' : 'scale(1)',
+          }}
           onMouseEnter={() => setIsButtonHovered(true)}
           onMouseLeave={() => setIsButtonHovered(false)}
         >
@@ -118,7 +129,7 @@ export default function LabeledInput({
         <input
           type={type}
           id={`input-${label}`}
-          value={value}
+          value={type === 'date' || type === 'time' ? formatValue(String(value)) : value}
           onChange={onChange}
           onBlur={onBlur}
           style={{
@@ -130,6 +141,7 @@ export default function LabeledInput({
             width: '100%',
             letterSpacing: '0.11rem',
           }}
+          placeholder={type === 'date' ? 'dd/mm/yyyy' : type === 'time' ? 'HH:mm' : placeholder}
         />
       )}
 
