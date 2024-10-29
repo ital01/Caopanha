@@ -1,7 +1,7 @@
 import LabeledInput from '@components/labeled-input/labeled-input';
 import MainContainer from '@components/main-container/main-container';
 import './register.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { iCampaign } from '../../interfaces/hooks/campaigns';
 import { toast } from 'react-toastify';
 import { Address, PetRegistration } from '../../interfaces/hooks/appointments';
@@ -13,6 +13,9 @@ export default function Register() {
   const [address, setAddress] = useState<Address>({} as Address);
   const [formData, setPetRegistration] = useState<PetRegistration>({} as PetRegistration);
   const [errors, setErrors] = useState<Partial<PetRegistration>>({} as PetRegistration);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [image, setImage] = useState('');
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     (async () => {
@@ -23,11 +26,34 @@ export default function Register() {
           ...prevData,
           campaign_id: objectData.id,
         }));
+        setImage(objectData.logo);
       } else {
         toast.info('Você ainda não selecionou nenhuma campanha');
       }
     })();
+    const updateDimensions = () => {
+      if (imageContainerRef.current) {
+        const { offsetWidth, offsetHeight } = imageContainerRef.current;
+        setDimensions({ width: offsetWidth, height: offsetHeight });
+      }
+    };
+
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
   }, []);
+
+  const getImageUrl = useCallback((): string => {
+    if (image === '') {
+      return `https://placehold.co/${dimensions.width}x${dimensions.height}`;
+    } else {
+      return image;
+    }
+  }, [image, dimensions]);
 
   const validateField = (label: keyof PetRegistration, value: string) => {
     let error = '';
@@ -104,9 +130,9 @@ export default function Register() {
   return (
     <MainContainer>
       <div className="register-container">
-        <div className="image-container">
+        <div className="image-container" ref={imageContainerRef}>
           <img
-            src="https://placehold.co/900x900"
+            src={getImageUrl()}
             alt="Imagem da campanha"
             className="campaign-image"
           />

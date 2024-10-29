@@ -1,8 +1,36 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { iCampaign } from '../../../interfaces/hooks/campaigns';
 
 const SELECTED_CAMPAIGN_KEY = 'selectedCampaign';
 
 export default function CampaignComponent(props: iCampaign) {
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (imageContainerRef.current) {
+        const { offsetWidth, offsetHeight } = imageContainerRef.current;
+        setDimensions({ width: offsetWidth, height: offsetHeight });
+      }
+    };
+
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
+
+  const getImageUrl = useCallback((): string => {
+    if (props.logo === '') {
+      return `https://placehold.co/${dimensions.width}x${dimensions.height}`;
+    } else {
+      return props.logo;
+    }
+  }, [props.logo, dimensions]);
 
   const handleRegisterClick = () => {
     localStorage.setItem(SELECTED_CAMPAIGN_KEY, JSON.stringify(props));
@@ -11,9 +39,9 @@ export default function CampaignComponent(props: iCampaign) {
   return (
     <div style={styles.mainContainer}>
       <div style={styles.campaigns}>
-        <div style={styles.imageContainer}>
+        <div style={styles.imageContainer} ref={imageContainerRef}>
           <img
-            src={'https://placehold.co/900x900'}
+            src={getImageUrl()}
             alt="Imagem da campanha"
             style={styles.campaignImage}
           />

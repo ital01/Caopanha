@@ -5,6 +5,7 @@ export interface iFindManyCampaigns {
 
 export interface iCampaign {
   id: number;
+  logo: string;
   organization_id: number;
   campaign_place: iCampaignPlace[];
   name: string;
