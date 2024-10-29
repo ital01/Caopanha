@@ -4,8 +4,8 @@ import api from '../../services/api';
 import { iFindManyCampaigns } from '../../interfaces/hooks/campaigns';
 
 export const findMany = async({ skip, take }:iFindMany) => {
-  try{
-    const{ data } = await api.get('/campaigns', {
+  try {
+    const{ data } = await api.get('/campaigns/external/1', {
       params: {
         skip: skip,
         take: take,
@@ -14,7 +14,7 @@ export const findMany = async({ skip, take }:iFindMany) => {
 
     return data;
 
-  }catch(error){
+  } catch (error) {
     console.log(error);
   }
 };

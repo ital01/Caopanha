@@ -31,7 +31,6 @@ export default function AppRoutes() {
         <>
           {user ?
             <>
-              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/pets" element={<Pets />} />
               <Route path="/servicos" element={<Services />} />
 

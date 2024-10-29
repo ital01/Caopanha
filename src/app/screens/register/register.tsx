@@ -4,62 +4,22 @@ import './register.css';
 import { useEffect, useState } from 'react';
 import { iCampaign } from '../../interfaces/hooks/campaigns';
 import { toast } from 'react-toastify';
+import { Address, PetRegistration } from '../../interfaces/hooks/appointments';
+import { createAppointment } from '../../hooks/appointments';
 
 const SELECTED_CAMPAIGN_KEY = 'selectedCampaign';
 
-interface FormData {
-  pet_name: string;
-  specie: number;
-  weight: string;
-  gender: number;
-  date: string;
-  campaign_id: number;
-  responsible_name: string;
-  responsible_document: string;
-  phone: string;
-  document: string;
-  address: {
-    street: string;
-    neighborhood: string;
-    number: string;
-    zip_code: string;
-    state: string;
-    city: string;
-    complement: string;
-  };
-}
-
 export default function Register() {
-  const [formData, setFormData] = useState<FormData>({
-    pet_name: '',
-    specie: 0,
-    weight: '',
-    gender: 0,
-    date: '',
-    campaign_id: 0,
-    responsible_name: '',
-    responsible_document: '',
-    phone: '',
-    document: '',
-    address: {
-      street: '',
-      neighborhood: '',
-      number: '',
-      zip_code: '',
-      state: '',
-      city: '',
-      complement: '',
-    },
-  });
-
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [address, setAddress] = useState<Address>({} as Address);
+  const [formData, setPetRegistration] = useState<PetRegistration>({} as PetRegistration);
+  const [errors, setErrors] = useState<Partial<PetRegistration>>({} as PetRegistration);
 
   useEffect(() => {
     (async () => {
       const data = localStorage.getItem(SELECTED_CAMPAIGN_KEY);
       if (data !== null) {
         const objectData: iCampaign = JSON.parse(data);
-        setFormData((prevData) => ({
+        setPetRegistration((prevData) => ({
           ...prevData,
           campaign_id: objectData.id,
         }));
@@ -69,7 +29,7 @@ export default function Register() {
     })();
   }, []);
 
-  const validateField = (label: keyof FormData, value: string) => {
+  const validateField = (label: keyof PetRegistration, value: string) => {
     let error = '';
     switch (label) {
     case 'pet_name':
@@ -96,51 +56,48 @@ export default function Register() {
     setErrors((prevErrors) => ({ ...prevErrors, [label]: error }));
   };
 
-  const handleInputChange = (label: keyof FormData, value: string) => {
-    setFormData((prevData) => ({ ...prevData, [label]: value }));
+  const handleInputChange = (label: keyof PetRegistration, value: string) => {
+    setPetRegistration((prevData) => ({ ...prevData, [label]: value }));
     validateField(label, value);
   };
 
-  const handleAddressChange = (field: keyof FormData['address'], value: string) => {
-    setFormData((prevData) => ({
+  const handleAddressChange = (field: keyof Address, value: string) => {
+    setAddress((prevAddress) => ({ ...prevAddress, [field]: value }));
+    setPetRegistration((prevData) => ({
       ...prevData,
       address: { ...prevData.address, [field]: value },
     }));
   };
 
   const handleGenderChange = (value: number) => {
-    setFormData((prevData) => ({ ...prevData, gender: value }));
+    setPetRegistration((prevData) => ({ ...prevData, gender: value }));
   };
 
   const handleSpecieChange = (value: number) => {
-    setFormData((prevData) => ({ ...prevData, specie: value }));
+    setPetRegistration((prevData) => ({ ...prevData, specie: value }));
   };
 
-  const handleSubmit = () => {
-    if (Object.values(errors).every((error) => !error)) {
+  const handleSubmit = async () => {
+    if (
+      Object.values(errors).every((error) => !error) &&
+      Object.values(formData).every((value) => value !== '')
+    ) {
       console.log(formData);
-      setFormData({
-        pet_name: '',
-        specie: 0,
-        weight: '',
-        gender: 0,
-        date: '',
-        campaign_id: 0,
-        responsible_name: '',
-        responsible_document: '',
-        phone: '',
-        document: '',
-        address: {
-          street: '',
-          neighborhood: '',
-          number: '',
-          zip_code: '',
-          state: '',
-          city: '',
-          complement: '',
-        },
-      });
+      await createAppointment(formData).then(
+        (status) => {
+          if (status) toast.success('Formulário enviado com sucesso!');
+          else toast.error('Erro ao enviar formulário, tente novamente');
+        }
+      ).catch(
+        (error) => {
+          console.error(error);
+          toast.error('Erro ao enviar formulário, tente novamente');
+        }
+      );
+      setPetRegistration({} as PetRegistration);
       setErrors({});
+    } else {
+      toast.error('Por favor, corrija os erros antes de enviar.');
     }
   };
 
@@ -163,7 +120,6 @@ export default function Register() {
               type="text"
               value={formData.pet_name}
               onChange={(e) => handleInputChange('pet_name', e.target.value)}
-              error={errors.pet_name}
             />
 
             <LabeledInput
@@ -171,7 +127,6 @@ export default function Register() {
               type="text"
               value={formData.weight}
               onChange={(e) => handleInputChange('weight', e.target.value)}
-              error={errors.weight}
             />
           </div>
 
@@ -181,7 +136,6 @@ export default function Register() {
               type="text"
               value={formData.responsible_name}
               onChange={(e) => handleInputChange('responsible_name', e.target.value)}
-              error={errors.responsible_name}
             />
 
             <LabeledInput
@@ -189,7 +143,6 @@ export default function Register() {
               type="text"
               value={formData.responsible_document}
               onChange={(e) => handleInputChange('responsible_document', e.target.value)}
-              error={errors.responsible_document}
               mask="999.999.999-99"
             />
           </div>
@@ -200,7 +153,6 @@ export default function Register() {
               type="text"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              error={errors.phone}
               mask="(99) 99999-9999"
             />
 
@@ -209,7 +161,6 @@ export default function Register() {
               type="text"
               value={formData.document}
               onChange={(e) => handleInputChange('document', e.target.value)}
-              error={errors.document}
             />
           </div>
 
@@ -258,14 +209,14 @@ export default function Register() {
             <LabeledInput
               label="Rua"
               type="text"
-              value={formData.address.street}
+              value={address.street}
               onChange={(e) => handleAddressChange('street', e.target.value)}
             />
 
             <LabeledInput
               label="Bairro"
               type="text"
-              value={formData.address.neighborhood}
+              value={address.neighborhood}
               onChange={(e) => handleAddressChange('neighborhood', e.target.value)}
             />
           </div>
@@ -274,14 +225,14 @@ export default function Register() {
             <LabeledInput
               label="Número"
               type="text"
-              value={formData.address.number}
+              value={address.number}
               onChange={(e) => handleAddressChange('number', e.target.value)}
             />
 
             <LabeledInput
               label="CEP"
               type="text"
-              value={formData.address.zip_code}
+              value={address.zip_code}
               onChange={(e) => handleAddressChange('zip_code', e.target.value)}
               mask="99999-999"
             />
@@ -291,14 +242,14 @@ export default function Register() {
             <LabeledInput
               label="Estado"
               type="text"
-              value={formData.address.state}
+              value={address.state}
               onChange={(e) => handleAddressChange('state', e.target.value)}
             />
 
             <LabeledInput
               label="Cidade"
               type="text"
-              value={formData.address.city}
+              value={address.city}
               onChange={(e) => handleAddressChange('city', e.target.value)}
             />
           </div>
@@ -307,13 +258,15 @@ export default function Register() {
             <LabeledInput
               label="Complemento"
               type="text"
-              value={formData.address.complement}
+              value={address.complement}
               onChange={(e) => handleAddressChange('complement', e.target.value)}
             />
           </div>
 
-          <div className='submit-button-container'>
-            <button className='submit-button' onClick={handleSubmit}>Enviar</button>
+          <div className="submit-button-container">
+            <button className="submit-button" onClick={handleSubmit}>
+              Enviar
+            </button>
           </div>
         </div>
       </div>
