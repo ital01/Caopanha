@@ -1,7 +1,7 @@
 import LabeledInput from '@components/labeled-input/labeled-input';
 import MainContainer from '@components/main-container/main-container';
-import { useEffect, useState } from 'react';
 import './register.css';
+import { useEffect, useState } from 'react';
 import { iCampaign } from '../../interfaces/hooks/campaigns';
 import { toast } from 'react-toastify';
 
@@ -233,9 +233,6 @@ export default function Register() {
               />
               <label htmlFor="cat">Gato</label>
             </div>
-          </div>
-
-          <div className="form-row">
             <div className="radio-group">
               <input
                 type="radio"
