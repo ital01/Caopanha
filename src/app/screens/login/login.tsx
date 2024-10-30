@@ -22,8 +22,10 @@ export default function Login() {
   const [isPasswordRecoveryModalOpen, setIsPasswordRecoveryModalOpen] = useState(false);
 
   const handleSubmit = async () => {
+    console.log(email, password);
     const response = await signIn({ email, password, setError });
     console.error(error);
+    console.log(response);
     if (response !== undefined && response !== null) {
       toast.success('Login realizado com sucesso');
     } else {

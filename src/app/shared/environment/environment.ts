@@ -1,6 +1,6 @@
 const environment = {
   production: false,
-  apiUrl: 'http://stingray-app-qgrep.ondigitalocean.app',
+  apiUrl: 'localhost:8088',
 };
 
 export default environment;

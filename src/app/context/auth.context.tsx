@@ -15,7 +15,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function signIn(props: iSignIn): Promise<string | undefined> {
     try {
-      const { data } = await api.post('/auth/login', props);
+      const { email, password } = props;
+      const { data } = await api.post('/auth/login', { email, password });
 
       Cookies.set('@user', JSON.stringify(data), {
         expires: dayjs().add(7, 'days').toDate(),
