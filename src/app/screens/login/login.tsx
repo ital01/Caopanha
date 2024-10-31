@@ -3,7 +3,7 @@ import LabeledInput from '@components/labeled-input/labeled-input';
 import { AuthContext } from '../../context/auth.context';
 import Modal from '@components/modal/modal';
 import { UsersHook } from '../../hooks';
-import api from '../../services/api';
+import api from '../../service/api';
 import './login.css';
 import MainContainer from '@components/main-container/main-container';
 

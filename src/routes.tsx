@@ -7,7 +7,7 @@ import Pets from './app/screens/pets/pets';
 import { useContext } from 'react';
 import { AuthContext } from './app/context/auth.context';
 import Campaigns from './app/screens/campaigns/campaigns';
-import Services from './app/screens/campaign-services/services';
+import Services from './app/screens/services/services';
 import Register from './app/screens/register/register';
 
 export default function AppRoutes() {

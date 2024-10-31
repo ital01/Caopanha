@@ -3,7 +3,7 @@ import { iAuthContextProps } from '../interfaces/context/auth-context';
 import { iSignIn } from '../interfaces/hooks/auth';
 import { iUserProps } from '../interfaces/hooks/user';
 import Cookies from 'js-cookie';
-import api from '../services/api';
+import api from '../service/api';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
 

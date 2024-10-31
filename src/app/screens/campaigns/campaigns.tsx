@@ -92,14 +92,32 @@ export default function Campaigns() {
 
   return (
     <MainContainer style={{ gap: '0' }}>
+      
+      { user?
+      <>
+      <Divider size={'md'}/>
+    <h1>Minhas Campanhas</h1>
+    <button className='submitButton' >Cadastrar</button>
+
+      <Divider size="md" />
+      <Table
+        columns={COLUMNS}
+        data={data.records}
+        rowsPerPage={rowsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalRows={data.total}
+        id=""
+      />
+      
+      </>:
       <div style={{ textAlign: 'center' }}>
         <h1>Confira as Campanhas Ativas</h1>
         <h2>E não perca a oportunidade de cuidar de quem mais precisa de você</h2>
-      </div>
-      {
-        campaigns.map((campaign, index) => (
+       { campaigns.map((campaign, index) => (
           <CampaignComponent key={index} {...campaign} />
-        ))
+        ))}
+      </div>
       }
     </MainContainer>
   );

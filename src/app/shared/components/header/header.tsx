@@ -46,6 +46,9 @@ export default function Header() {
             <button onClick={() => navigate('/pets')} className="nav-button">
               Meus Pets
             </button>
+            <button onClick={() => navigate('/servicos')} className="nav-button">
+              Meus serviços
+            </button>
             <button onClick={() => navigate('/dashboard')} className="nav-button">
               Minha Conta
             </button>

@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { iFindMany } from '../../interfaces/hooks/find-many';
-import api from '../../services/api';
+import api from '../../service/api';
 import { iFindManyPets } from '../../interfaces/hooks/pet';
 
 export const findMany = async({ skip, take }:iFindMany) => {

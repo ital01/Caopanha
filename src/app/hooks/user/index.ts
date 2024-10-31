@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import api from '../../services/api';
+import api from '../../service/api';
 
 export const passwordRecovery = async (
   data: { email: string }

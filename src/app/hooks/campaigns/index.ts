@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { iFindMany } from '../../interfaces/hooks/find-many';
-import api from '../../services/api';
+import api from '../../service/api';
 import { iFindManyCampaigns } from '../../interfaces/hooks/campaigns';
 
 export const findMany = async({ skip, take }:iFindMany) => {
