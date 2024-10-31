@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { iCampaign } from '../../../interfaces/hooks/campaigns';
+import { useNavigate } from 'react-router-dom';
 
 const SELECTED_CAMPAIGN_KEY = 'selectedCampaign';
 
 export default function CampaignComponent(props: iCampaign) {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -32,8 +34,15 @@ export default function CampaignComponent(props: iCampaign) {
     }
   }, [props.logo, dimensions]);
 
-  const handleRegisterClick = () => {
-    localStorage.setItem(SELECTED_CAMPAIGN_KEY, JSON.stringify(props));
+  const handleRegisterClick = async () => {
+    const data = localStorage.getItem(SELECTED_CAMPAIGN_KEY);
+    if (data) {
+      localStorage.removeItem(SELECTED_CAMPAIGN_KEY);
+      localStorage.setItem(SELECTED_CAMPAIGN_KEY, JSON.stringify(props));
+    } else {
+      localStorage.setItem(SELECTED_CAMPAIGN_KEY, JSON.stringify(props));
+    }
+    navigate('/cadastrar');
   };
 
   return (

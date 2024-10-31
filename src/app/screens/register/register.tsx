@@ -21,12 +21,13 @@ export default function Register() {
     (async () => {
       const data = localStorage.getItem(SELECTED_CAMPAIGN_KEY);
       if (data !== null) {
-        const objectData: iCampaign = JSON.parse(data);
+        const objectData: iCampaign = await JSON.parse(data);
         setPetRegistration((prevData) => ({
           ...prevData,
           campaign_id: objectData.id,
         }));
         setImage(objectData.logo);
+        console.log(objectData);
       } else {
         toast.info('Você ainda não selecionou nenhuma campanha');
       }
