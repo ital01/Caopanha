@@ -55,7 +55,7 @@ export default function Services() {
   ];
 
   return (
-    <div className='container'>
+    <div style={{ display: 'flex', flexDirection: 'column', padding:20}}>
       <h1>Serviços Cadastrados</h1>
 
       <button className='submitButton' >Cadastrar</button>

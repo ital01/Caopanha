@@ -18,3 +18,14 @@ export const findMany = async({ skip, take }:iFindMany) => {
     console.log(error);
   }
 };
+
+export const generalMetrics = async() =>{
+  try{
+    const {data} = await api.get('campaigns/get/statistics')
+
+    return data
+
+  }catch(error){
+   return false
+  }
+}

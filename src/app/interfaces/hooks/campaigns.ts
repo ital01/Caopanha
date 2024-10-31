@@ -47,3 +47,16 @@ export interface iCampaignDate {
   week_day: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday'; // Replace with specific days of the week
   campaign_id: number;
 }
+
+
+export interface iCampaignMetrics{
+  totalCampaigns: number;
+  totalCampaignsActived: number;
+  totalCampaignsInactived: number;
+  totalAppointmentsAtendend: number;
+  totalAppointmentsCanceled: number;
+  totalAppointmentsAbsence: number;
+  totalServicesActived: number;
+  totalServicesInactived: number;
+
+}

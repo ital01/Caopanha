@@ -29,12 +29,14 @@ export default function Header() {
       </div>
 
       <nav className="header-nav">
+        {!isLogged &&
         <button
-          className="nav-button"
-          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
+        className="nav-button"
+        onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
         >
           Como Funciona?
         </button>
+        }
         <button onClick={() => navigate('/campanhas')} className="nav-button">
           Campanhas Ativas
         </button>
@@ -50,8 +52,8 @@ export default function Header() {
               Meus serviços
             </button>
             <button onClick={() => navigate('/dashboard')} className="nav-button">
-              Minha Conta
             </button>
+              Minha Conta
             <button
               onClick={logout}
               className="nav-button"

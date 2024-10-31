@@ -7,9 +7,11 @@ import dayjs from 'dayjs';
 import Divider from '@components/divider/divider';
 import MainContainer from '@components/main-container/main-container';
 import CampaignComponent, { CampaignProps } from '@components/campaign/campaign';
+import { useNavigate } from 'react-router-dom';
 
 export default function Campaigns() {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [data, setData] = useState<iFindManyCampaigns>({
     total: 0,
@@ -97,7 +99,7 @@ export default function Campaigns() {
       <>
       <Divider size={'md'}/>
     <h1>Minhas Campanhas</h1>
-    <button className='submitButton' >Cadastrar</button>
+    <button className='submitButton' onClick={() => navigate('/cadastrar')} >Cadastrar</button>
 
       <Divider size="md" />
       <Table
