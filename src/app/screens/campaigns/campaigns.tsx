@@ -1,7 +1,7 @@
 import MainContainer from '@components/main-container/main-container';
 import CampaignComponent from '@components/campaign/campaign';
 import { useEffect, useState } from 'react';
-import { CampaignProps } from './api';
+import { CampaignProps } from './campaigns.api';
 import { CampaignServiceInstance } from './campaigns.service';
 
 export default function Campaigns() {
