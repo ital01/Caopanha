@@ -1,4 +1,4 @@
-import { CampaignProps } from '../../../screens/campaigns/campaigns.api';
+import { CampaignProps } from '../../../screens/campaigns/api';
 
 export default function CampaignComponent({
   title,

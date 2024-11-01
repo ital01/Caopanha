@@ -1,5 +1,6 @@
 import { campaignApi, CampaignProps } from './campaigns.api';
 
+
 class CampaignService {
   public async getCampaigns(): Promise<CampaignProps[]> {
     try {
