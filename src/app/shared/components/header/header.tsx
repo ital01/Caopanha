@@ -18,6 +18,7 @@ export default function Header() {
   const logout = () => {
     localStorage.setItem('isLogged', 'false');
     setIsLogged(false);
+    navigate('/home');
   };
 
   return (
@@ -56,8 +57,8 @@ export default function Header() {
               Meus serviços
             </button>
             <button onClick={() => navigate('/dashboard')} className="nav-button">
-            </button>
               Minha Conta
+            </button>
             <button
               onClick={logout}
               className="nav-button"

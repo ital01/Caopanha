@@ -12,7 +12,6 @@ export default function MainContainer({ children, style }: MainContainerProps) {
         width: '100%',
         maxWidth: '1366px',
         margin: '0 auto',
-        overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
         gap: '48px',
