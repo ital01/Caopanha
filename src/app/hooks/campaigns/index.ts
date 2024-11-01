@@ -19,13 +19,14 @@ export const findMany = async({ skip, take }:iFindMany) => {
   }
 };
 
-export const generalMetrics = async() =>{
+export const generalMetrics = async() => {
   try{
-    const {data} = await api.get('campaigns/get/statistics')
+    const { data } = await api.get('campaigns/get/statistics');
 
-    return data
+    return data;
 
   }catch(error){
-   return false
+    console.error(error);
+    return false;
   }
-}
+};

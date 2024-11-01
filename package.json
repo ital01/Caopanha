@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "mock": "json-server --watch mock/mock-db.json --port 3000 &",
+    "mock": "json-server mock/mock-db.json --port 3000",
     "start": "node set-env.js && vite",
     "server": "node set-env.js && vite --host 0.0.0.0 --port 3000",
     "stop-mock": "lsof -t -i:3000 | xargs kill -9 || echo 'No mock server running on port 3000'",

@@ -1,10 +1,4 @@
-export interface CampaignProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  requiredDocuments: string[];
-  imageUrl: string;
-}
+import { CampaignProps } from '../../../screens/campaigns/api';
 
 export default function CampaignComponent({
   title,

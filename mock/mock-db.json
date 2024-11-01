@@ -1,0 +1,32 @@
+{
+  "campaign": [
+    {
+      "title": "Campanha de Vacinação para Cães e Gatos",
+      "subtitle": "Parque Ecológico - Avenida Brasil, 2525, Americana-SP",
+      "description": "Vacinação gratuita para cães e gatos a partir de 3 meses de idade. Traga seu pet para garantir a proteção contra doenças.",
+      "requiredDocuments": ["RG", "CPF", "Comprovante de Residência"],
+      "imageUrl": "https://placehold.co/900x900"
+    },
+    {
+      "title": "Mutirão de Vacinação Antirrábica",
+      "subtitle": "UBS São Vito - Rua Florindo Cibin, 345, São Vito, Americana-SP",
+      "description": "A campanha de vacinação antirrábica está disponível gratuitamente. Traga seu pet e ajude a combater a raiva animal.",
+      "requiredDocuments": ["RG", "Comprovante de Residência"],
+      "imageUrl": "https://placehold.co/900x900"
+    },
+    {
+      "title": "Vacinação Anual de Cães e Gatos",
+      "subtitle": "Ginásio de Esportes - Rua Sergipe, 230, Jardim Colina, Americana-SP",
+      "description": "A vacinação anual é essencial para a saúde do seu pet. Participe da campanha e mantenha seu animal protegido.",
+      "requiredDocuments": ["RG", "CPF"],
+      "imageUrl": "https://placehold.co/900x900"
+    },
+    {
+      "title": "Dia D de Vacinação Animal",
+      "subtitle": "Praça Comendador Müller - Centro, Americana-SP",
+      "description": "Neste Dia D, aproveite para vacinar cães e gatos de forma gratuita. A ação é voltada para a prevenção de doenças comuns.",
+      "requiredDocuments": ["RG", "CPF", "Carteira de Vacinação do Animal"],
+      "imageUrl": "https://placehold.co/900x900"
+    }
+  ]
+}
