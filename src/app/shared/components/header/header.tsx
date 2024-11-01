@@ -1,20 +1,24 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import ScrollToElement from '@utils/scroll-to-element';
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../context/auth.context';
 import './header.css';
 
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logout } = useContext(AuthContext);
   const [isLogged, setIsLogged] = useState(false);
-
   const isHome = location.pathname === '/home';
 
   useEffect(() => {
-    if (user) setIsLogged(true);
-  }, [user]);
+    const loginState = localStorage.getItem('isLogged');
+    if (loginState) setIsLogged(loginState === 'true');
+    else setIsLogged(false);
+  }, [isLogged]);
+
+  const logout = () => {
+    localStorage.setItem('isLogged', 'false');
+    setIsLogged(false);
+  };
 
   return (
     <header className="header">
@@ -31,8 +35,8 @@ export default function Header() {
       <nav className="header-nav">
         {!isLogged &&
         <button
-        className="nav-button"
-        onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
+          className="nav-button"
+          onClick={isHome ? ScrollToElement('mid') : () => navigate('/home')}
         >
           Como Funciona?
         </button>

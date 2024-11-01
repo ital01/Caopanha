@@ -1,17 +1,15 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import LabeledInput from '@components/labeled-input/labeled-input';
-import { AuthContext } from '../../context/auth.context';
 import Modal from '@components/modal/modal';
 import { UsersHook } from '../../hooks';
 import api from '../../service/api';
 import './login.css';
 import MainContainer from '@components/main-container/main-container';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  const { signIn } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [codeError, setCodeError] = useState(false);
   const [validationCode, setValidationCode] = useState('');
@@ -19,11 +17,11 @@ export default function Login() {
   const [emailToRecoveryPassword, setEmailToRecoveryPassword] = useState('');
   const [passwordRecoveryStep, setPasswordRecoveryStep] = useState(0);
   const [isPasswordRecoveryModalOpen, setIsPasswordRecoveryModalOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await signIn({ email, password, setError });
-    console.log(error);
+  const handleLogin = () => {
+    localStorage.setItem('isLogged', 'true');
+    navigate('/dashboard');
   };
 
   const handlePasswordRecovery = async () => {
@@ -132,7 +130,7 @@ export default function Login() {
       <section className="container">
         <img src="/images/image.webp" alt="Pets" className="image" />
         <div className="formContainer">
-          <form onSubmit={handleSubmit} className="form">
+          <form onSubmit={handleLogin} className="form">
             <LabeledInput
               type="text"
               label="Email"
