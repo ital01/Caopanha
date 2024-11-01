@@ -15,7 +15,7 @@ export default function CampaignComponent({
       display: 'flex',
       height: '100%',
       flexDirection: 'row' as const,
-      justifyContent: 'center',
+      justifyContent: 'start',
       alignItems: 'flex-start',
       margin: '0 auto',
     },
@@ -48,6 +48,7 @@ export default function CampaignComponent({
     },
     topH1: {
       fontSize: '2.5rem',
+      textAlign: 'center' as const,
       marginBottom: '0.5rem',
       color: 'var(--primary-color)',
     },
@@ -58,6 +59,7 @@ export default function CampaignComponent({
     },
     topP: {
       fontSize: '1.6rem',
+      textAlign: 'start' as const,
       marginBottom: '1rem',
       lineHeight: 1.6,
     },
@@ -67,6 +69,7 @@ export default function CampaignComponent({
       alignItems: 'flex-start',
     },
     documentContainer: {
+      textAlign: 'start' as const,
       width: '50%',
       display: 'flex',
       flexDirection: 'column' as const,
@@ -113,7 +116,7 @@ export default function CampaignComponent({
               <p>Documentos Necessários:</p>
               <ul>
                 {requiredDocuments.map((doc, index) => (
-                  <li key={index}>{doc}</li>
+                  <li style={{ textAlign: 'start' }} key={index}>{doc}</li>
                 ))}
               </ul>
             </div>

@@ -37,6 +37,27 @@ export default function Home() {
         <SlideDownText>
           É facil assim?
         </SlideDownText>
+        <div style={{ display: 'flex', gap: 12, flexDirection: 'column', marginBottom: 64 }}>
+          <h2 style={{ fontSize: '2.4em', textAlign: 'center' }}>Sim !</h2>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Navegue pela lista de campanhas ativas disponíveis na plataforma.
+          </p>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Você pode ver detalhes sobre cada uma, incluindo datas, locais e tipos de vacinas.
+          </p>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Basta acessar, preencher o formulário e agendar a vacinação.
+          </p>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Com apenas alguns cliques, você pode garantir a saúde do seu amigo peludo.
+          </p>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Não é necessário criar uma conta ou fazer login.
+          </p>
+          <p style={{ fontSize: '2.4rem', textAlign: 'center' }}>
+            Basta acessar, preencher o formulário e agendar a vacinação.
+          </p>
+        </div>
       </section>
     </MainContainer>
   );
